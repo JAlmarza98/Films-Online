@@ -1,0 +1,84 @@
+@font-face {
+    font-family: tarjeta;
+    src: url(../fonts/HALTER__.ttf);
+}
+#margen{
+    height: 40px;
+}
+#card{
+    background-color: rgb(255, 255, 255);
+    width: 450px;
+    height: 250px;
+    border-radius: 20px;
+    text-shadow: none;
+    box-shadow: 0px 0px 15px black;
+    margin-left: 100px;
+}
+
+#logo{
+    height: 40px;
+}
+#span{
+    color: black;
+    font-size: 13px;
+}
+#nombre{
+    color: rgb(41, 111, 241);
+    font-size: 20px;
+    font-family: tarjeta;
+    height: 40px;
+}
+#fecha{
+    color: rgb(41, 154, 219);
+    font-size: 24px;
+    font-family: tarjeta;
+}
+
+.formulario{
+    background-color: whitesmoke;
+}
+@media (max-width: 800px) {
+    .front{
+        margin-top: -10px;
+    }
+    #numero{
+        font-size: 28px;
+        font-family: tarjeta;
+        height: 45px;
+    }
+    #card{
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .front{
+        margin-left: 3px;
+        margin-top: -10px;
+        width: 100%;
+        height: 100px;
+    }
+    
+    #logo{
+        height: 40px;
+        margin-left: -20px;
+    }
+    #margen{
+        height: 15px;
+    }
+    #span{
+        font-size: 8px;
+    }
+    #nombre{
+        font-size: 11px;
+        font-family: tarjeta;
+    }
+    #fecha{
+        font-size: 11px;
+        font-family: tarjeta;
+        margin-top: 25px;
+    }
+    #card{
+        margin-left: 3px;
+    }
+}

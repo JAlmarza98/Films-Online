@@ -1,0 +1,13 @@
+.botonNv {
+    background-color: #272729ce;
+    color: white;
+    padding: 20px;
+    font-size: 25px;
+    position: absolute;
+    z-index: 9999;
+    margin-top: -3px;
+}
+.top{
+    font-size: xx-large;
+    margin-left: 20px;
+}

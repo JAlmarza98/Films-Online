@@ -1,0 +1,206 @@
+body {
+  background-color: #353746;
+  color: white;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.head {
+  position: absolute;
+}
+
+.promo {
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+}
+
+.cuerpo {
+  background-color: #353746;
+  color: white;
+  width: 100%;
+  height: fit-content;
+  z-index: 10;
+  top: 800px;
+  position: absolute;
+}
+
+.icon {
+  float: right;
+}
+
+.titulo {
+  right: 0%;
+  width: 700px;
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.438);
+  color: black;
+  bottom: 210px;
+}
+#nombre {
+  color: rgb(255, 255, 255);
+  text-shadow: 3px 2px 0px rgb(134, 134, 134);
+  font-weight: bold;
+  font-size: 60px;
+}
+
+#sub {
+  font-size: medium;
+}
+/* estos dos id's son temporales hasta tener los iconos definitivos*/
+#accion {
+  font-size: medium;
+  text-align: center;
+  padding: 10px;
+}
+#accion:hover {
+  background-color: rgba(255, 255, 255, 0.575);
+  transition: 0.3s;
+  color: black;
+}
+#symbol {
+  font-size: xx-large;
+  margin-top: 10px;
+}
+.btn {
+  border: none;
+}
+
+.btn-primary {
+  padding: 0px;
+  background-color: black;
+}
+
+#footer {
+  text-align: center;
+  background-color: black;
+}
+/*#########################################################El siguiente CSS pertenece a los carteles############################################################*/
+/*##############################################################################################################################################################*/
+/*##############################################################################################################################################################*/
+
+.carteles {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  overflow-y: visible;
+  overflow-x: scroll;
+}
+.carteles::-webkit-scrollbar {
+  display: none;
+}
+.margen {
+  width: 30%;
+}
+.item {
+  width: 160px;
+  margin-left: 10px;
+}
+
+/* .carteles:focus-within .item,
+.carteles:hover .item {
+  transform: translateX(-25%);
+}
+
+.item:focus ~ .item,
+.item:hover ~ .item {
+  transform: translateX(25%);
+} */
+
+/* .item:hover {
+  transform: scale(1.5);
+  z-index: 11;
+} */
+/*
+.item img {
+  display: block;
+  max-width: 100%;
+  font-size: 0;
+} */
+
+/*#########################################################El siguiente CSS pertenece a la modal################################################################*/
+/*##############################################################################################################################################################*/
+/*##############################################################################################################################################################*/
+
+.modal-body {
+  position: absolute;
+  background-color: #2e3147c7;
+  overflow: hidden;
+  text-align: center;
+  z-index: 99999;
+}
+.modal-backdrop {
+  z-index: 101;
+}
+.modal-footer {
+  background-color: #2e3147c7;
+}
+#reproducir {
+  margin-top: -30px;
+  margin-left: -40px;
+  z-index: 0;
+}
+#play {
+  margin-top: -175px;
+  cursor: pointer;
+}
+#sinopsis {
+  text-align: left;
+}
+#articulo {
+  font-size: x-large;
+  border-bottom: 1px solid grey;
+}
+.datos {
+  text-align: left;
+}
+#datos {
+  color: rgb(46, 46, 46);
+}
+/*#########################################################El siguiente CSS pertenece al filtro#################################################################*/
+/*##############################################################################################################################################################*/
+/*##############################################################################################################################################################*/
+.filtro {
+  position: absolute;
+  border: gray 3px solid;
+}
+
+/*#########################################################      media queries       #################################################################*/
+/*##############################################################################################################################################################*/
+/*##############################################################################################################################################################*/
+@media (min-width: 400px) and (max-width: 545px) {
+  .cuerpo {
+    top: 270px;
+  }
+  /* .titulo{} */
+}
+@media (min-width: 546px) and (max-width: 712px) {
+  .cuerpo {
+    top: 300px;
+  }
+  .titulo {
+    bottom: 620px;
+    width: 500px;
+  }
+}
+@media (min-width: 713px) and (max-width: 888px) {
+  .cuerpo {
+    top: 400px;
+  }
+  .titulo {
+    bottom: 530px;
+  }
+}
+@media (min-width: 889px) and (max-width: 1200px) {
+  .cuerpo {
+    top: 500px;
+  }
+  .titulo {
+    bottom: 550px;
+  }
+}

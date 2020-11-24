@@ -1,0 +1,17 @@
+@font-face {
+    font-family: bebas;
+    src: url(../fonts/BebasNeue-Regular.otf)
+}
+
+body{
+    color: whitesmoke;
+    background-color: rgba(17, 21, 34, 0.932);
+    font-family: bebas;
+}
+
+#space{
+    height: 15px;
+}
+#space-big{
+    height: 50px;
+}

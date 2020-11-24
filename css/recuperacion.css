@@ -1,0 +1,39 @@
+@font-face {
+    font-family: bebas2;
+    src: url(../fonts/BebasNeue\ Bold.otf);
+}
+
+body{
+    background: url(../img/web/index_bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+}
+p{
+    text-align: center;
+    font-size: 56px;
+    color: white;
+    font-family: 'bebas2' ;
+}
+button{
+	color: white;
+	font-size:50px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	border-radius: 20px;
+	margin: auto;
+	border: none;
+	background-color: rgb(17, 19, 34, 0.9);
+}
+#datos {
+	color: white;
+	text-shadow: 0px 0px 5px #000000;
+	background-color: rgba(100, 100, 100, 0.5);
+}
+span{
+    color:red;
+}

@@ -1,0 +1,85 @@
+@font-face {
+    font-family: bebas2;
+    src: url(../fonts/BebasNeue\ Bold.otf);
+}
+
+body{
+    background: url(../img/web/index_bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+ 
+p{
+    color:white;
+    text-align: justify;
+    font-family: bebas2;
+}
+
+p:first-of-type{
+    font-size: 40px;
+}
+p:nth-of-type(2){
+    font-size: 40px;
+}
+
+#LoginEmail{
+    background-color: rgb(13, 12, 20);
+    color: whitesmoke;
+}
+
+#LoginPassword{
+    background-color: rgb(13, 12, 20);
+    color: whitesmoke;
+}
+
+#name{
+    text-align: center;
+    font-size:70px;
+    color: whitesmoke;
+    font-family: bebas2;
+}
+
+.modal-body{
+    background-color: rgba(17, 21, 34, 0.932);
+    color: whitesmoke;
+}
+
+#cancel{
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.377);
+    float:right;
+    border-radius: 0px;
+}
+
+#cancel:hover{
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.61);
+    background-color: rgba(255, 255, 255, 0.322);
+    transition: 0,3s;
+}
+
+#inicio{
+    background-color: rgba(17, 21, 34, 0.932);
+    border: none;
+}
+
+#inicio:hover{
+    background-color: rgba(43, 49, 70, 0.712);
+    border: 1px solid white;
+    transition: 0.3s;
+}
+
+#registro{
+    background-color: rgba(132, 135, 146, 0.925);
+    border: none;
+    padding: 20px;
+    display: block;
+}
+
+#indent{
+    text-align: center;
+    
+}
+
