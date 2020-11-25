@@ -35,7 +35,7 @@
 
     <div class="container-fluid">
         <div class="row">  
-            <div class="col-lg-2 filtro">
+            <div class="col-lg-2 offset-1 filtro">
                 </form>
                     <div class="col-12">
                         <span id="buscar">
@@ -74,7 +74,7 @@
                         <span id="anadirAno">
                                 <hr>
                                 <?php
-                                    mostrarAnos();
+                                    mostrarAnos($tipo);
                                 ?>
                         <span> 
                     </div>
@@ -91,25 +91,26 @@
                     </div>
                 </form>
             </div>
-            <div class='col-lg-10' id="mostrar">
-                <?php
-                    if(isset($_GET['genero'])){
-                        mostrarGenero($tipo,$_GET['genero']);
-                    }else if(isset($tipo,$_GET['ano'])){
-                        mostrarAno($tipo,$_GET['ano']);
-                    }else if(isset($tipo,$_GET['puntuacion'])){
-                        mostrarPuntuacion($tipo,$_GET['puntuacion']);
-                    }else{
-                        mostrarPeliculas($tipo);
-                    }
-                ?>
+            <div class='col-lg-8' id="mostrar">
+                <div class="grid">
+                    <?php
+                        if(isset($_GET['genero'])){
+                            mostrarGenero($tipo,$_GET['genero']);
+                        }else if(isset($tipo,$_GET['ano'])){
+                            mostrarAno($tipo,$_GET['ano']);
+                        }else if(isset($tipo,$_GET['puntuacion'])){
+                            mostrarPuntuacion($tipo,$_GET['puntuacion']);
+                        }else{
+                            mostrarPeliculas($tipo);
+                        }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
     <?php
         include '../html/footer.html';
     ?>
-
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">

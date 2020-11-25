@@ -1,13 +1,22 @@
-.botonNv {
-    background-color: #272729ce;
-    color: white;
-    padding: 20px;
-    font-size: 25px;
-    position: absolute;
-    z-index: 9999;
-    margin-top: -3px;
+.top {
+  font-size: xx-large;
+  margin-left: 20px;
 }
-.top{
-    font-size: xx-large;
-    margin-left: 20px;
+
+.filtro {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #30323f, #393b4b);
+  box-shadow: 20px 20px 60px #2d2f3c, -20px -20px 60px #3d3f51;
+  color: white;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.arrow {
+  position: absolute;
+  bottom: -55px;
+  left: 40%;
+}
+p {
+  color: white;
 }

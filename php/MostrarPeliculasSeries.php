@@ -63,12 +63,10 @@
                     $ruta2=$row['rutaImgPromo'];
                     $aux2++;
                     if($aux==0){
-                        echo "<div class='col-lg-12 container'>";
                         tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                         $aux++;
                     }else if($aux==4){
                         tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
-                        echo "</div>";
                         $aux=0;
                     }else{
                         tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
@@ -77,7 +75,7 @@
                 }
             }
             mysqli_close($conexion);
-            echo '<nav>';
+            echo '<div class="arrow">';
             echo '<ul class="pagination">';
 
             if($tipo=="pelicula"){
@@ -103,7 +101,7 @@
             }
 
             echo '</ul>';
-            echo '</nav>';
+            echo '</div>';
 
         }else{
             echo "No hay resultados.";
@@ -160,12 +158,10 @@
                 $ruta2=$row['rutaImgPromo'];
                 $aux2++;
                 if($aux==0){
-                    echo "<div class='col-lg-12 container'>";
                     tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux++;
                 }else if($aux==4){
                     tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
-                    echo "</div>";
                     $aux=0;
                 }else{
                     tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
@@ -175,7 +171,7 @@
             }
             mysqli_close($conexion);
                     
-            echo '<nav>';
+            echo '<div class="arrow">';
             echo '<ul class="pagination">';
         
             if($tipo=="pelicula"){
@@ -201,7 +197,7 @@
             }
 
             echo '</ul>';
-            echo '</nav>';
+            echo '</div>';
             
         }else{
             echo "No hay resultados.";
@@ -258,12 +254,10 @@
                 $ruta2=$row['rutaImgPromo'];
                 $aux2++;
                 if($aux==0){
-                    echo "<div class='col-lg-12 container'>";
                     tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux++;
                 }else if($aux==4){
                     tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
-                    echo "</div>";
                     $aux=0;
                 }else{
                     tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
@@ -273,7 +267,7 @@
             }
             mysqli_close($conexion);
                     
-            echo '<nav>';
+            echo '<div class="arrow">';
             echo '<ul class="pagination">';
         
             if($tipo=="pelicula"){
@@ -299,7 +293,7 @@
             }
 
             echo '</ul>';
-            echo '</nav>';
+            echo '</div>';
             
         }else{
             echo "No hay resultados.";
@@ -358,12 +352,10 @@
                 $ruta2=$row['rutaImgPromo'];
                 $aux2++;
                 if($aux==0){
-                    echo "<div class='col-lg-12 container'>";
                     tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux++;
                 }else if($aux==4){
                     tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
-                    echo "</div>";
                     $aux=0;
                 }else{
                     tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
@@ -373,7 +365,7 @@
             }
             mysqli_close($conexion);
                     
-            echo '<nav>';
+            echo '<div class="arrow">';
             echo '<ul class="pagination">';
             
             if($tipo=="pelicula"){
@@ -399,7 +391,7 @@
             }
 
             echo '</ul>';
-            echo '</nav>';
+            echo '</div>';
             
         }else{
             echo "No hay resultados.";
