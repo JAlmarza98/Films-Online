@@ -27,7 +27,7 @@
     ?>
     
     <div class="cuerpo">
-        <div class="mt-5">
+        <div class="mt-5 marg-min">
             <p class="ml-5">TOP 10 Peliculas</p>
             <div class="carteles">
             <div class='margen item'></div>

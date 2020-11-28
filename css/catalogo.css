@@ -152,19 +152,32 @@ a {
 /*#########################################################      media queries       #################################################################*/
 /*##############################################################################################################################################################*/
 /*##############################################################################################################################################################*/
-@media (min-width: 400px) and (max-width: 545px) {
+@media(max-width: 479px) {
+  .cuerpo {
+    top: 0;
+  }
+  .marg-min{
+    padding-top: 30;
+  }
+  .titulo{
+    display: none;
+  }
+}
+@media (min-width: 480px) and (max-width: 545px) {
   .cuerpo {
     top: 270px;
   }
-  /* .titulo{} */
+  .titulo{
+    display: none;
+  }
 }
 @media (min-width: 546px) and (max-width: 712px) {
   .cuerpo {
     top: 300px;
   }
   .titulo {
-    bottom: 620px;
-    width: 500px;
+    bottom: 470px;
+    width: 470px;
   }
 }
 @media (min-width: 713px) and (max-width: 888px) {
@@ -172,7 +185,7 @@ a {
     top: 400px;
   }
   .titulo {
-    bottom: 530px;
+    bottom: 400px;
   }
 }
 @media (min-width: 889px) and (max-width: 1200px) {
@@ -180,6 +193,6 @@ a {
     top: 500px;
   }
   .titulo {
-    bottom: 550px;
+    bottom: 300px;
   }
 }
