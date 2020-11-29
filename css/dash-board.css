@@ -1,0 +1,21 @@
+.dash-menu{
+    height: 100vh;
+    background: rgba(10, 13, 20, 0.932);
+    color: white;
+    border-right: gray;
+}
+
+.seccion{
+    padding: 15px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+}
+.bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.dash-body{
+    background: rgba(17, 21, 34, 0.932);
+}
