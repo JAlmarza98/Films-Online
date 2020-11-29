@@ -134,16 +134,22 @@
                                 <?php
                                 echo "<img id='reproducir' src=\"..$ruta2\" alt='$nombre' width='125%'>";
                                 if($tipo=='pelicula'){
-                                     echo "<a href='Peliculas.php?pelicula=$nombre'><img id='play' src=\"$rutaPlay\"></a>";
+                                     echo "<a href='Ficha.php?pelicula=$nombre'><img id='play' src=\"$rutaPlay\"></a>";
                                 }else{
-                                    echo "<a href='Series.php?serie=$nombre'><img id='play' src=\"$rutaPlay\"></a>";
+                                    echo "<a href='Ficha.php?serie=$nombre'><img id='play' src=\"$rutaPlay\"></a>";
                                 }
                                 ?>
                             </div>
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-lg-12 col-xl-12" id="articulo">
-                                        <p><?php echo $titulo;?></p>
+                                        <?php
+                                        if($tipo=='pelicula'){
+                                            echo "<a href='Ficha.php?pelicula=$nombre'><p>$titulo</p></a>";
+                                        }else{
+                                            echo "<a href='Ficha.php?serie=$nombre'><p>$titulo</p></a>";
+                                        }
+                                        ?>
                                     </div>
                                     <hr>
                                     <div class="col-xl-6">
