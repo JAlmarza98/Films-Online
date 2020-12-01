@@ -79,7 +79,7 @@ th {
   padding: 0px 20px;
 }
 td {
-  padding: 20px 0px;
+  padding: 20px 5px;
   margin: 3px;
 }
 .user {
@@ -88,6 +88,7 @@ td {
 .total {
   float: right;
   margin-right: 40px;
+  padding: 10px;
 }
 span {
   opacity: 0.6;
@@ -100,6 +101,15 @@ span {
   margin-left: 450px;
 }
 /*CSS peliculas*/
+
+.tabla-films {
+  width: fit-content;
+  text-align: center;
+  height: 550px;
+  margin: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 
 @media (max-width: 768px) {
   .name {
