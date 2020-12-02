@@ -110,9 +110,13 @@ span {
   overflow-x: hidden;
   overflow-y: scroll;
 }
+.form-file {
+  display: flex;
+  flex-direction: column;
+}
 
 @media (max-width: 768px) {
-  .name {
+  .dash-menu {
     display: none;
   }
 }

@@ -33,7 +33,11 @@
               <td>3</td>
               <td>0/0/0000</td>
               <td>
-                <button class="btn btn-info">
+                <button
+                  class="btn btn-info"
+                  data-toggle="modal"
+                  data-target="#editFilmModal"
+                >
                   <i class="fas fa-edit"></i>
                 </button>
               </td>
@@ -304,8 +308,156 @@
       <div class="total">Total de peliculas: <span>65</span></div>
     </div>
 
-    <div class="col-12 mt-5">
-      <button class="btn btn-success total">Añadir Pelicula</button>
+    <div class="col-12 mt-5 mb-5">
+      <button
+        class="btn btn-success total"
+        data-toggle="modal"
+        data-target="#newFilm"
+      >
+        Añadir Pelicula
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Modals -->
+<div
+  class="modal fade"
+  id="editFilmModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #212531">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar pelicula</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre</label>
+            <input type="text" class="form-control" id="peliculaName" />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Categoria</label>
+            <input type="text" class="form-control" id="peliculaCategoria" />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Director</label>
+            <input type="text" class="form-control" id="peliculaDirector" />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Reparto</label>
+            <input type="text" class="form-control" id="peliculaReparto" />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Año</label>
+            <input type="text" class="form-control" id="peliculaYear" />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Descripción</label>
+            <textarea
+              class="form-control"
+              id="peliculaDescipcion"
+              rows="5"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="newFilm"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" style="background-color: #212531">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nueva Pelicula</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Nombre</label>
+              <input type="text" class="form-control" id="peliculaName" />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="exampleFormControlInput1">Categoria</label>
+              <input type="text" class="form-control" id="peliculaCategoria" />
+            </div>
+            <div class="form-group col-md-2">
+              <label for="exampleFormControlInput1">Año</label>
+              <input type="text" class="form-control" id="peliculaYear" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Director</label>
+              <input type="text" class="form-control" id="peliculaDirector" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Reparto</label>
+              <input type="text" class="form-control" id="peliculaReparto" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Descripción</label>
+            <textarea
+              class="form-control"
+              id="peliculaDescipcion"
+              rows="5"
+            ></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-file col-md-4">
+              <label for="exampleFormControlInput1">Cartel</label>
+              <input type="file" id="cartel" />
+            </div>
+            <div class="form-file col-md-4">
+              <label for="exampleFormControlInput1">Imagen de Promoción</label>
+              <input type="file" id="imgPromo" />
+            </div>
+            <div class="form-file col-md-4">
+              <label for="exampleFormControlInput1">Pelicula</label>
+              <input type="file" id="pelicula" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary">Subir Pelicula</button>
+      </div>
     </div>
   </div>
 </div>

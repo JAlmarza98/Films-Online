@@ -1,6 +1,6 @@
 .navbar {
   position: absolute;
-  z-index: 100;
+  z-index: 10;
   background-color: rgba(17, 21, 34, 0.616);
 }
 .nav-item {
@@ -15,4 +15,10 @@
 }
 .dropdown-menu {
   left: -100 !important;
+}
+
+@media (max-width: 990px) {
+  .ajuste {
+    width: 100%;
+  }
 }
