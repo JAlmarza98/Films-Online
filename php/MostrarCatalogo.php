@@ -37,7 +37,6 @@
     }
 
     function mostrarTopPeliculas(){
-        $aux=0;
         $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
         mysqli_set_charset($conexion, 'UTF8');
         $consulta="SELECT rutaImg,nombre,categoria,año,rating,director,actores,descripcion,tipo,rutaImgPromo FROM peliculasseries WHERE tipo='pelicula' order by rating DESC limit 10";
