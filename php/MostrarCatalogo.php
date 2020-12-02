@@ -17,7 +17,7 @@
         
         <div class="promo">
         <?php
-        echo "<img id='fondo' src=\"..$ruta\" alt='promo' width='100%'>";
+        echo "<img id='fondo' src=\"..$ruta\"  width='100%'>";
         ?>
         </div>
         
@@ -44,7 +44,6 @@
         $resultado=mysqli_query($conexion,$consulta);
 
         while($fila=mysqli_fetch_row($resultado)){
-            $aux++;
             $ruta=$fila[0];
             $nombre=$fila[1];
             $nombre=str_replace(' ','-',$nombre);
@@ -58,21 +57,19 @@
             $tipo=$fila[8];
             $ruta2=$fila[9];
 
-            tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux,$ruta2);
+            tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
             
         }
         mysqli_close($conexion);
     }
 
     function mostrarTopSeries(){
-        $aux=10;
         $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
         mysqli_set_charset($conexion, 'UTF8');
         $consulta="SELECT rutaImg,nombre,categoria,año,rating,director,actores,descripcion,tipo,rutaImgPromo FROM peliculasseries WHERE tipo='serie' order by rating DESC limit 10";
         $resultado=mysqli_query($conexion,$consulta);
         
         while($fila=mysqli_fetch_row($resultado)){
-            $aux++;
             $ruta=$fila[0];
             $nombre=$fila[1];
             $nombre=str_replace(' ','-',$nombre);
@@ -86,20 +83,18 @@
             $tipo=$fila[8];
             $ruta2=$fila[9];
 
-            tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux,$ruta2);
+            tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
         }
         mysqli_close($conexion);
     }
 
     function mostrarUltimas(){
-        $aux=20;
         $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
         mysqli_set_charset($conexion, 'UTF8');
         $consulta="SELECT rutaImg,nombre,categoria,año,rating,director,actores,descripcion,tipo,rutaImgPromo FROM peliculasseries order by fechaActualizacion DESC limit 10";
         $resultado=mysqli_query($conexion,$consulta);
         
         while($fila=mysqli_fetch_row($resultado)){
-            $aux++;
             $ruta=$fila[0];
             $nombre=$fila[1];
             $nombre=str_replace(' ','-',$nombre);
@@ -113,26 +108,26 @@
             $tipo=$fila[8];
             $ruta2=$fila[9];
 
-            tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux,$ruta2);
+            tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
         }
         mysqli_close($conexion);
     }
 
-    function tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux,$ruta2){
+    function tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2){
         $rutaPlay="../img/web/play.png";
         ?>
-        <div type="button" class="item" data-toggle="modal" data-target="<?php echo "#exampleModal$aux"; ?>">
+        <div type="button" class="item" data-toggle="modal" data-target="<?php echo "#exampleModal$nombre"; ?>">
         <?php
-            echo "<img src=\"..$ruta\" alt='$nombre' width='160px'>";
+            echo "<img src=\"..$ruta\" width='160px'>";
         ?>
         </div>
-            <div class="modal fade" id="<?php echo "exampleModal$aux"; ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo "exampleModal$aux"; ?>" aria-hidden="true">
+            <div class="modal fade" id="<?php echo "exampleModal$nombre"; ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo "exampleModal$nombre"; ?>" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
                             <div>
                                 <?php
-                                echo "<img id='reproducir' src=\"..$ruta2\" alt='$nombre' width='125%'>";
+                                echo "<img id='reproducir' src=\"..$ruta2\" width='125%'>";
                                 if($tipo=='pelicula'){
                                      echo "<a href='Ficha.php?pelicula=$nombre'><img id='play' src=\"$rutaPlay\"></a>";
                                 }else{

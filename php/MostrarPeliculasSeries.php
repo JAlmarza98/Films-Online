@@ -40,10 +40,9 @@
             //calculo el total de paginas
             $total_pages = ceil($num_total_rows / $NUM_ITEMS_BY_PAGE);
             $aux=0;
-            $aux2=0;
 
             $result = $conexion->query(
-                'SELECT rutaImg,nombre,categoria,año,rating,director,actores,descripcion,tipo,rutaImgPromo
+                'SELECT idPeliculasSeries,rutaImg,nombre,categoria,año,rating,director,actores,descripcion,tipo,rutaImgPromo
                 FROM peliculasseries 
                 WHERE tipo="'.$tipo.'" order by fechaActualizacion LIMIT '.$start.', '.$NUM_ITEMS_BY_PAGE
             );
@@ -51,7 +50,7 @@
                 while($row = $result->fetch_assoc()){
                     $ruta=$row['rutaImg'];
                     $nombre=$row['nombre'];
-                    $nombre=str_replace(' ','-',$nombre);
+                    $nombreReemplazado=str_replace(' ','-',$nombre);
                     $titulo=$row['nombre'];
                     $categoria=$row['categoria'];
                     $ano=$row['año'];
@@ -61,15 +60,15 @@
                     $descripcion=$row['descripcion'];
                     $tipo=$row['tipo'];
                     $ruta2=$row['rutaImgPromo'];
-                    $aux2++;
+
                     if($aux==0){
-                        tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                        tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
                         $aux++;
                     }else if($aux==4){
-                        tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                        tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
                         $aux=0;
                     }else{
-                        tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                        tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
                         $aux++;
                     }
                 }
@@ -146,7 +145,7 @@
             while($row = $result->fetch_assoc()){
                 $ruta=$row['rutaImg'];
                 $nombre=$row['nombre'];
-                $nombre=str_replace(' ','-',$nombre);
+                $nombreReemplazado=str_replace(' ','-',$nombre);
                 $titulo=$row['nombre'];
                 $categoria=$row['categoria'];
                 $ano=$row['año'];
@@ -158,13 +157,13 @@
                 $ruta2=$row['rutaImgPromo'];
                 $aux2++;
                 if($aux==0){
-                    tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                    tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux++;
                 }else if($aux==4){
-                    tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                    tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux=0;
                 }else{
-                    tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                    tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux++;
                     }
                 }
@@ -242,7 +241,7 @@
             while($row = $result->fetch_assoc()){
                 $ruta=$row['rutaImg'];
                 $nombre=$row['nombre'];
-                $nombre=str_replace(' ','-',$nombre);
+                $nombreReemplazado=str_replace(' ','-',$nombre);
                 $titulo=$row['nombre'];
                 $categoria=$row['categoria'];
                 $ano=$row['año'];
@@ -254,13 +253,13 @@
                 $ruta2=$row['rutaImgPromo'];
                 $aux2++;
                 if($aux==0){
-                    tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                    tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux++;
                 }else if($aux==4){
-                    tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                    tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux=0;
                 }else{
-                    tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                    tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux++;
                     }
                 }
@@ -340,7 +339,7 @@
             while($row = $result->fetch_assoc()){
                 $ruta=$row['rutaImg'];
                 $nombre=$row['nombre'];
-                $nombre=str_replace(' ','-',$nombre);
+                $nombreReemplazado=str_replace(' ','-',$nombre);
                 $titulo=$row['nombre'];
                 $categoria=$row['categoria'];
                 $ano=$row['año'];
@@ -352,13 +351,13 @@
                 $ruta2=$row['rutaImgPromo'];
                 $aux2++;
                 if($aux==0){
-                    tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                    tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux++;
                 }else if($aux==4){
-                    tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                    tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux=0;
                 }else{
-                    tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
+                    tarjeta($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$aux2,$ruta2);
                     $aux++;
                     }
                 }

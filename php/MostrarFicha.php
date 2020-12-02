@@ -23,7 +23,7 @@
         mysqli_close($conexion);
 
         echo "<div>$titulo</div>";
-        echo "<div><img id='fondo' src=\"..$rutaImg\" alt='img' width='10%'></div>";
+        echo "<div><img id='fondo' src=\"..$rutaImg\" width='10%'></div>";
         echo "<div><p>Categorias:</p>";
         $array = explode(",", $categoria);
         foreach ($array as $valor) {
