@@ -128,7 +128,7 @@
         </div>
             <div class="modal fade" id="<?php echo "exampleModal$aux"; ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo "exampleModal$aux"; ?>" aria-hidden="true">
                 <div class="modal-dialog" role="document" >
-                    <div class="modal-content">
+                    <div class="modal-content" style="background: #353746;">
                         <div class="modal-body">
                             <div>
                                 <?php
