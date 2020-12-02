@@ -123,7 +123,7 @@
         </div>
             <div class="modal fade" id="<?php echo "exampleModal$nombre"; ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo "exampleModal$nombre"; ?>" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="modal-content" style="background: #353746;">
                         <div class="modal-body">
                             <div>
                                 <?php
@@ -137,7 +137,7 @@
                             </div>
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-12 col-sm-12 col-lg-12 col-xl-12" id="articulo">
+                                    <div class="col-12 col-sm-12 col-lg-12 col-xl-12" text-center id="articulo">
                                         <?php
                                         if($tipo=='pelicula'){
                                             echo "<a href='Ficha.php?pelicula=$nombre'><p>$titulo</p></a>";
