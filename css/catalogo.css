@@ -24,7 +24,7 @@ a {
   color: white;
   width: 100%;
   height: fit-content;
-  z-index: 10;
+  z-index: 9;
   top: 800px;
   position: absolute;
 }
@@ -37,7 +37,7 @@ a {
   right: 0%;
   width: 700px;
   position: absolute;
-  z-index: 10;
+  z-index: 9;
   background-color: rgba(255, 255, 255, 0.438);
   color: black;
   bottom: 210px;
@@ -112,27 +112,15 @@ a {
 /*#########################################################El siguiente CSS pertenece a la modal################################################################*/
 /*##############################################################################################################################################################*/
 /*##############################################################################################################################################################*/
-
-.modal-body {
-  position: absolute;
-  background-color: #2e3147c7;
-  overflow: hidden;
-  text-align: center;
-  z-index: 99999;
-}
-.modal-backdrop {
-  z-index: 101;
-}
-.modal-footer {
-  background-color: #2e3147c7;
-}
 #reproducir {
   margin-top: -30px;
   margin-left: -40px;
   z-index: 0;
 }
 #play {
-  margin-top: -175px;
+  position: absolute;
+  top: 100;
+  left: 220;
   cursor: pointer;
 }
 #sinopsis {
@@ -144,27 +132,50 @@ a {
 }
 .datos {
   text-align: left;
+  color: white;
 }
-#datos {
-  color: rgb(46, 46, 46);
+.datos:first-child {
+  font-weight: bold;
 }
-
+.modal-backdrop {
+  display: none;
+}
+.modal-content {
+  overflow: hidden;
+}
 /*#########################################################      media queries       #################################################################*/
 /*##############################################################################################################################################################*/
 /*##############################################################################################################################################################*/
-@media (min-width: 400px) and (max-width: 545px) {
+@media (max-width: 479px) {
+  .cuerpo {
+    top: 0;
+  }
+  .marg-min {
+    padding-top: 30;
+  }
+  .titulo {
+    display: none;
+  }
+  #play {
+    top: 70;
+    left: 170;
+  }
+}
+@media (min-width: 480px) and (max-width: 545px) {
   .cuerpo {
     top: 270px;
   }
-  /* .titulo{} */
+  .titulo {
+    display: none;
+  }
 }
 @media (min-width: 546px) and (max-width: 712px) {
   .cuerpo {
     top: 300px;
   }
   .titulo {
-    bottom: 620px;
-    width: 500px;
+    bottom: 470vh;
+    width: 470px;
   }
 }
 @media (min-width: 713px) and (max-width: 888px) {
@@ -172,7 +183,9 @@ a {
     top: 400px;
   }
   .titulo {
-    bottom: 530px;
+    top: 210px;
+    height: fit-content;
+    width: 500px;
   }
 }
 @media (min-width: 889px) and (max-width: 1200px) {
@@ -180,6 +193,16 @@ a {
     top: 500px;
   }
   .titulo {
-    bottom: 550px;
+    top: 310px;
+    height: fit-content;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1420px) {
+  .cuerpo {
+    top: 680px;
+  }
+  .titulo {
+    top: 410px;
+    height: fit-content;
   }
 }

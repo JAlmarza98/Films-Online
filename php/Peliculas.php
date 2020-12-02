@@ -1,14 +1,21 @@
 <head>
     <title>Films Online</title>
+    <META http-equiv="Content-Type" content="text/html; ISO-8859-1">
+    <META NAME="DC.Language" SCHEME="RFC1766" CONTENT="Spanish">
+    <META NAME="Resource-type" CONTENT="Index">
+    <META NAME="Revisit-after" CONTENT="1 days">
+    <META NAME="robots" content="ALL">
     <META charset="utf-8">
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/catalogo.css" />
     <link rel="stylesheet" href="../css/pelisSeries.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="stylesheet" href="../css/footer.css" />
+    <META name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/5c4ea47aab.js" crossorigin="anonymous"></script>
     <script src="../js/peliculas.js"></script>
 </head>
 <body style="background-color:  #353746;">
@@ -29,7 +36,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-2 offset-1 filtro">
+            <div class="col-lg-2 offset-lg-1 filtro py-3">
                 </form>
                     <div class="col-12">
                         <span id="buscar">

@@ -28,8 +28,8 @@
             ?>
             <div class="container-fluid">
                 <div class="row"> 
-                    <div class="col-6" id="accion"><i class="fas fa-play mr-3"></i><?php echo "<a href='Peliculas.php?pelicula=$nombre'>Reproducir</a>"; ?></div>
-                    <div class="col-6" id="accion"><i class="fas fa-plus mr-3"></i><?php echo "<a href='AgregarLista.php?agregar=$nombre'>Añadir a la lista</a>"; ?></div>
+                    <div class="col-6 py-3" id="accion"><i class="fas fa-play mr-3"></i><?php echo "<a href='Peliculas.php?pelicula=$nombre'>Reproducir</a>"; ?></div>
+                    <div class="col-6 py-3" id="accion"><i class="fas fa-plus mr-3"></i><?php echo "<a href='AgregarLista.php?agregar=$nombre'>Añadir a la lista</a>"; ?></div>
                 </div>
             </div>    
         </div>
@@ -127,8 +127,8 @@
         ?>
         </div>
             <div class="modal fade" id="<?php echo "exampleModal$aux"; ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo "exampleModal$aux"; ?>" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                <div class="modal-dialog" role="document" >
+                    <div class="modal-content" style="background: #353746;">
                         <div class="modal-body">
                             <div>
                                 <?php
@@ -142,11 +142,11 @@
                             </div>
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-12 col-sm-12 col-lg-12 col-xl-12" id="articulo">
+                                    <div class="col-12 col-sm-12 col-lg-12 col-xl-12 text-center" id="articulo">
                                         <p><?php echo $titulo;?></p>
                                     </div>
                                     <hr>
-                                    <div class="col-xl-6">
+                                    <div class="col-6">
                                         <p>
                                             <?php
                                                 $array = explode(",", $categoria);
@@ -161,7 +161,7 @@
                                             ?>
                                         </p>
                                     </div>
-                                    <div class="col-xl-2">
+                                    <div class="col-2">
                                         <p><?php 
                                             if($tipo=='pelicula'){
                                                 echo "<a href='Peliculas.php?ano=$ano'>$ano </a>";
@@ -170,12 +170,11 @@
                                             }
                                         ?></p>
                                     </div>
-                                    <div class="col-xl-4">
+                                    <div class="col-4">
                                             <p>★<?php echo $rating;?><span id="sub">/5</span></p>
                                     </div>
-                                    <div class="col-xl-1"></div>
-                                    <div class="col-xl-10">
-                                        <p class="datos"><span id="datos">Director:</span>
+                                    <div class="col-10 offset-1">
+                                        <p class="datos"><span>Director:</span>
                                             <?php
                                                 $array = explode(",", $director);
                                                 foreach ($array as $valor) {
@@ -185,10 +184,8 @@
                                             ?>
                                         </p>
                                     </div>
-                                    <div class="col-xl-1"></div>
-                                    <div class="col-xl-1"></div>
-                                    <div class="col-xl-10">
-                                        <p class="datos" ><span id="datos">Reparto:</span>
+                                    <div class="col-10 offset-1">
+                                        <p class="datos" ><span>Reparto:</span>
                                             <?php
                                                 $array = explode(",", $actores);
                                                 foreach ($array as $valor) {
@@ -198,13 +195,10 @@
                                             ?>
                                         </p>
                                     </div>
-                                    <div class="col-xl-1"></div>
-                                    <div class="col-xl-1"></div>
-                                    <div class="col-xl-10" id="sinopsis">
+                                    <div class="col-10 offset-1" id="sinopsis">
                                         <p><?php echo $descripcion;?></p>
                                     </div>
-                                    <div class="col-xl-1"></div>
-                                    <div class="col-xl-12">
+                                    <div class="col-12 text-center">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                         <button type="button" class="btn btn-primary">Añadir a la lista</button>
                                     </div>
@@ -214,6 +208,7 @@
                     </div>
                 </div>
             </div>
+            
         <?php
     }
 ?>
