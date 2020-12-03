@@ -204,7 +204,7 @@
                                         <p><?php echo $descripcion;?></p>
                                     </div>
                                     <div class="col-xl-1"></div>
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-12 text-center">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                         <button type="button" class="btn btn-primary">Añadir a la lista</button>
                                     </div>
