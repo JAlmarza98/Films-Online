@@ -114,7 +114,10 @@ span {
   display: flex;
   flex-direction: column;
 }
-
+.scroll {
+  height: 600px;
+  overflow: auto;
+}
 @media (max-width: 768px) {
   .dash-menu {
     display: none;
