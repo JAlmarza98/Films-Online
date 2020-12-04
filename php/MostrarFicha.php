@@ -71,7 +71,7 @@
                         ?>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col-6">
                         <button class="btn btn-outline-info mt-5" data-toggle="modal" data-target='#ModalTrailer'>
                             Trailer
@@ -97,28 +97,24 @@
 
 <!-- Modal del trailer -->
             <div class="modal fade" id="ModalTrailer" tabindex="-1" role="dialog" aria-labelledby="ModalTrailer" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <video width='320' height='240' poster='<?php echo "../".$rutaPromo?>' controls>
-                                <source src='<?php echo "../".$rutaTrailer?>' type='video/mp4'>
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="background-color:black;">
+                        <video id='trailer' width='100%' poster='<?php echo "../".$rutaPromo?>' controls>
+                            <source src='<?php echo "../".$rutaTrailer?>' type='video/mp4'>
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
             </div>
 
 <!-- Modal de la pelicula -->
             <div class="modal fade" id="ModalPelicula" tabindex="-1" role="dialog" aria-labelledby="ModalPelicula" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <video width='320' height='240' poster='<?php echo "../".$rutaPromo?>' controls>
-                                <source src='<?php echo "../".$rutaVideo?>' type='video/mp4'>
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content" style="background-color:black;">
+                        <video id='pelicula' width='fit-content' poster='<?php echo "../".$rutaPromo?>' controls>
+                            <source src='<?php echo "../".$rutaVideo?>' type='video/mp4'>
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
             </div>
