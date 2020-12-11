@@ -275,6 +275,24 @@
                                     echo "</div>";
                                     echo "<div id='collapse".$i."' class='collapse' aria-labelledby='headingOne' data-parent='#accordionExample'>";
                                     echo "<div class='card-body'>";
+                                        $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
+                                        mysqli_set_charset($conexion, 'UTF8');
+                                        $consulta="SELECT nombre,ruta FROM temporadas WHERE idPeliculasSeries=".$id." AND numero=".$i."";
+                                        $resultado=mysqli_query($conexion,$consulta);
+
+                                        while($fila=mysqli_fetch_row($resultado)){
+                                            $nombre=$fila[0];
+                                            $ruta=$fila[1];
+                                            $nombreCambiado=str_replace(' ','',$nombre);
+                                            ?>
+                                                <div class="">
+                                                    <button class="btn btn-outline-info" data-toggle="modal" data-target=<?php echo "#ModalCapitulo".$nombreCambiado.""?>>
+                                                        <?php echo $nombre ?>
+                                                    </button>
+                                                </div>
+                                            <?php
+                                        }
+                                        mysqli_close($conexion);
                                     echo "</div>";
                                     echo "</div>";
                                     echo "</div>";
