@@ -75,7 +75,7 @@
                                 $array = explode(",", $actores);
                                 foreach ($array as $valor) {
                                     $valor=trim($valor);
-                                    echo "<a href='Buscar.php?director=$valor'>$valor</a> ";
+                                    echo "<a href='Buscar.php?actor=$valor'>$valor</a> ";
                                 }
                             ?>
                             ...
@@ -141,12 +141,14 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content text-center" style="background: rgba( 89, 99, 149, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );border-radius: 10px;">
                     <div class="modal-body text-center">
-                        <a href="Puntuacion.php?valor=0&" class="btn btn-primary mt-2" >0<i class="fas fa-star"></i></a>
-                        <a href="Puntuacion.php?valor=1&" class="btn btn-primary mt-2" >1<i class="fas fa-star"></i></a>
-                        <a href="Puntuacion.php?valor=2&" class="btn btn-primary mt-2" >2<i class="fas fa-star"></i></a>
-                        <a href="Puntuacion.php?valor=3&" class="btn btn-primary mt-2" >3<i class="fas fa-star"></i></a>
-                        <a href="Puntuacion.php?valor=4&" class="btn btn-primary mt-2" >4<i class="fas fa-star"></i></a>
-                        <a href="Puntuacion.php?valor=5&" class="btn btn-primary mt-2" >5<i class="fas fa-star"></i></a>
+                    <?php
+                        echo "<a href='Puntuacion.php?valor=0&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >0<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=1&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >1<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=2&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >2<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=3&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >3<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=4&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >4<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=5&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >5<i class='fas fa-star'></i></a>";
+                    ?>    
                     </div>
                     </div>
                 </div>

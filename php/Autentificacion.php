@@ -11,12 +11,12 @@
             if($fila!=NULL){
                 if(password_verify($password,$fila[2])){ 
                     if($fecha_actual<=$fila[3]){
-                        setcookie("Usuario", $email, time() + 3600, "/");
-                        setcookie("Id", $fila[0], time() + 3600, "/");
+                        setcookie("Usuario", $email, time() + 36000, "/");
+                        setcookie("Id", $fila[0], time() + 36000, "/");
                         header('Location: ./Catalogo.php');
                     }else{
-                        setcookie("Usuario", $email, time() + 3600, "/");
-                        setcookie("Id", $fila[0], time() + 3600, "/");
+                        setcookie("Usuario", $email, time() + 36000, "/");
+                        setcookie("Id", $fila[0], time() + 36000, "/");
                         header('Location: ./Renovacion.php');
                     }
                 }else{   
