@@ -235,11 +235,51 @@
         <form class="user" action="#">
           <input class="form-control" type="number" placeholder="ID" />
         </form>
-        <button class="btn btn-info ml-2">Renovar Subscripcion</button>
-        <button class="btn btn-danger">Eliminar Usuario</button>
-        <button class="btn btn-warning ml-5 mt-3">
-          Promocionar a administrador
+        <button
+          type="button"
+          class="btn btn-info ml-2"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Renovar Subscripcion
         </button>
+        <button class="btn btn-danger">Eliminar Usuario</button>
+        <button class="btn btn-warning mt-3 ml-2">
+          Promocionar/Degradar administrador
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #212531">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Selecciona el tipo de subscripcion
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <form>
+          <a href="#" class="btn btn-primary">30 Dias</a>
+          <a href="#" class="btn btn-primary">90 Dias</a>
+          <a href="#" class="btn btn-primary">360 Dias</a>
+        </form>
       </div>
     </div>
   </div>
