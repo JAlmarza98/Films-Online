@@ -26,9 +26,9 @@
                 if (mysqli_query($conexion, $consulta2)) {
                     echo "Actualizado mi lista.";
                     $nombreReemplazado=str_replace(' ','-',$nombre);
-                    if(isset($_GET['tipo'])=="pelicula"){
+                    if($_GET['tipo']=="pelicula"){
                         header("Location: Ficha.php?pelicula=$nombreReemplazado");
-                    }else if(isset($_GET['tipo'])=="serie"){
+                    }else if($_GET['tipo']=="serie"){
                         header("Location: Ficha.php?serie=$nombreReemplazado");
                     }else{
                         echo "<script>

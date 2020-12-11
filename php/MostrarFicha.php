@@ -134,20 +134,17 @@
                 </div>
             </div>
 <!-- Modal del voto -->
-            <?php
-                $nombrePelicula=str_replace(' ','-',$nombrePelicula);
-            ?>
             <div class="modal fade" id="ModalVoto" tabindex="-1" role="dialog" aria-labelledby="ModalVoto" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content text-center" style="background: rgba( 89, 99, 149, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );border-radius: 10px;">
                     <div class="modal-body text-center">
                     <?php
-                        echo "<a href='Puntuacion.php?valor=0&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >0<i class='fas fa-star'></i></a>";
-                        echo "<a href='Puntuacion.php?valor=1&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >1<i class='fas fa-star'></i></a>";
-                        echo "<a href='Puntuacion.php?valor=2&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >2<i class='fas fa-star'></i></a>";
-                        echo "<a href='Puntuacion.php?valor=3&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >3<i class='fas fa-star'></i></a>";
-                        echo "<a href='Puntuacion.php?valor=4&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >4<i class='fas fa-star'></i></a>";
-                        echo "<a href='Puntuacion.php?valor=5&tipo=$tipo&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >5<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=0&tipo=pelicula&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >0<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=1&tipo=pelicula&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >1<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=2&tipo=pelicula&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >2<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=3&tipo=pelicula&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >3<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=4&tipo=pelicula&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >4<i class='fas fa-star'></i></a>";
+                        echo "<a href='Puntuacion.php?valor=5&tipo=pelicula&nombre=$titulo' class='btn btn-primary mt-2 ml-2' >5<i class='fas fa-star'></i></a>";
                     ?>    
                     </div>
                     </div>
@@ -247,7 +244,13 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col-6 offset-6">
+                    <div class="col-6">
+                        <button class="btn btn-outline-success mt-5" data-toggle="modal" data-target='#ModalVoto'>
+                        <i class="fas fa-vote-yea"></i>
+                            Puntua
+                        </button>
+                    </div>
+                    <div class="col-6">
                         <button class="btn btn-outline-info mt-5" data-toggle="modal" data-target='#ModalTrailer'>
                             Trailer
                         </button>
@@ -329,6 +332,23 @@
                             <source src='<?php echo "../".$rutaTrailer?>' type='video/mp4'>
                             Your browser does not support the video tag.
                         </video>
+                    </div>
+                </div>
+            </div>
+<!-- Modal del voto -->
+            <div class="modal fade" id="ModalVoto" tabindex="-1" role="dialog" aria-labelledby="ModalVoto" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content text-center" style="background: rgba( 89, 99, 149, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );border-radius: 10px;">
+                        <div class="modal-body text-center">
+                        <?php
+                            echo "<a href='Puntuacion.php?valor=0&tipo=serie&nombre=$titulo' class='btn btn-primary mt-2 ml-2'>0<i class='fas fa-star'></i></a>";
+                            echo "<a href='Puntuacion.php?valor=1&tipo=serie&nombre=$titulo' class='btn btn-primary mt-2 ml-2'>1<i class='fas fa-star'></i></a>";
+                            echo "<a href='Puntuacion.php?valor=2&tipo=serie&nombre=$titulo' class='btn btn-primary mt-2 ml-2'>2<i class='fas fa-star'></i></a>";
+                            echo "<a href='Puntuacion.php?valor=3&tipo=serie&nombre=$titulo' class='btn btn-primary mt-2 ml-2'>3<i class='fas fa-star'></i></a>";
+                            echo "<a href='Puntuacion.php?valor=4&tipo=serie&nombre=$titulo' class='btn btn-primary mt-2 ml-2'>4<i class='fas fa-star'></i></a>";
+                            echo "<a href='Puntuacion.php?valor=5&tipo=serie&nombre=$titulo' class='btn btn-primary mt-2 ml-2'>5<i class='fas fa-star'></i></a>";
+                        ?>    
+                        </div>
                     </div>
                 </div>
             </div>
