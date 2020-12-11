@@ -2,13 +2,15 @@
     function mostrarPromo(){
         $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
         mysqli_set_charset($conexion, 'UTF8');
-        $consulta="SELECT rutaImgPromo,nombre,rating FROM peliculasseries order by fechaActualizacion DESC limit 1";
+        $consulta="SELECT rutaImgPromo,nombre,rating,tipo FROM peliculasseries order by fechaActualizacion DESC limit 1";
         $resultado=mysqli_query($conexion,$consulta);
         
         while($fila=mysqli_fetch_row($resultado)){
             $ruta=$fila[0];
             $nombre=$fila[1];
             $rating=$fila[2];
+            $tipo=$fila[3];
+            $nombreCambiado=str_replace(' ','-',$nombre);
         }
         mysqli_close($conexion);
 
@@ -27,9 +29,19 @@
                 echo "<p><i class='fas fa-star ml-5'></i> $rating<span id='sub'>/5</span></p>";
             ?>
             <div class="container-fluid">
-                <div class="row"> 
-                    <div class="col-6" id="accion"><i class="fas fa-play mr-3"></i><?php echo "<a href='Peliculas.php?pelicula=$nombre'>Reproducir</a>"; ?></div>
-                    <div class="col-6" id="accion"><i class="fas fa-plus mr-3"></i><?php echo "<a href='AgregarLista.php?agregar=$nombre'>Añadir a la lista</a>"; ?></div>
+                <div class="row">
+                    <?php
+                    if($tipo=="pelicula"){
+                        ?> 
+                            <div class="col-6" id="accion"><i class="fas fa-play mr-3"></i><?php echo "<a href='Ficha.php?pelicula=$nombreCambiado'>Reproducir</a>"; ?></div>
+                        <?php
+                    }else{
+                        ?> 
+                            <div class="col-6" id="accion"><i class="fas fa-play mr-3"></i><?php echo "<a href='Ficha.php?serie=$nombreCambiado'>Reproducir</a>"; ?></div>
+                        <?php
+                    }
+                    ?> 
+                    <div class="col-6" id="accion"><i class="fas fa-plus mr-3"></i><?php echo "<a href='AnadirLista.php?anadir=$nombreCambiado'>Añadir a la lista </a>"; ?></div>
                 </div>
             </div>    
         </div>
