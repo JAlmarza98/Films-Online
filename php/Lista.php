@@ -63,7 +63,7 @@
                         <span id="anadirAno">
                                 <hr>
                                 <?php
-                                    mostrarAnos($tipo);
+                                    mostrarAnos();
                                 ?>
                         <span> 
                     </div>
