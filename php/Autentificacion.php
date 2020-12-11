@@ -5,15 +5,18 @@
 
     $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
     mysqli_set_charset($conexion, 'UTF8');
-    $consulta ="select u.email,u.hashpass,MAX(f.fechaExpiracion) from usuarios u,facturacion f where u.idUsuario=f.idUsuario and email='".$email."'";
+    $consulta ="select u.idUsuario,u.email,u.hashpass,MAX(f.fechaExpiracion) from usuarios u,facturacion f where u.idUsuario=f.idUsuario and email='".$email."'";
         if($resultado=mysqli_query($conexion,$consulta)){
             $fila=mysqli_fetch_row($resultado);
             if($fila!=NULL){
-                if(password_verify($password,$fila[1])){ 
-                    if($fecha_actual<=$fila[2]){
+                if(password_verify($password,$fila[2])){ 
+                    if($fecha_actual<=$fila[3]){
+                        setcookie("Usuario", $email, time() + 3600, "/");
+                        setcookie("Id", $fila[0], time() + 3600, "/");
                         header('Location: ./Catalogo.php');
                     }else{
-                        setcookie("Usuario", $email, time() + 3600);
+                        setcookie("Usuario", $email, time() + 3600, "/");
+                        setcookie("Id", $fila[0], time() + 3600, "/");
                         header('Location: ./Renovacion.php');
                     }
                 }else{   

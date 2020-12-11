@@ -206,7 +206,7 @@
                                     <div class="col-xl-1"></div>
                                     <div class="col-xl-12 text-center">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary">Añadir a la lista</button>
+                                        <?php echo "<a href='AnadirLista.php?anadir=$nombre'>Añadir a la lista </a>" ?>
                                     </div>
                                 </div>
                             </div>
