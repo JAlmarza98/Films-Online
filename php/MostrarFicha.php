@@ -262,16 +262,16 @@
                             <?php
                             $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
                             mysqli_set_charset($conexion, 'UTF8');
-                            $consulta="SELECT DISTINCT numero FROM temporadas WHERE idPeliculasSeries=$id";
-                            $resultado=mysqli_query($conexion,$consulta);
-                    
-                            while($fila=mysqli_fetch_row($resultado)){
-                                $numero=$fila[0];
-                            }
-                            mysqli_close($conexion);
-                            if($numero == 0){
-                                echo "No hay capitulos disponibles";
-                            }else{
+                            $result = $conexion->query("SELECT COUNT(*) as numero FROM temporadas WHERE idPeliculasSeries=$id");
+                            $row = $result->fetch_assoc();
+                            $num_total_rows = $row['numero'];
+                            if ($num_total_rows > 0) {
+                                $consulta="SELECT DISTINCT numero FROM temporadas WHERE idPeliculasSeries=$id";
+                                $resultado=mysqli_query($conexion,$consulta);
+                
+                                while($fila=mysqli_fetch_row($resultado)){
+                                    $numero=$fila[0];
+                                }
                                 for ($i=1;$i<=$numero;$i++){
                                     echo "<div class='card'>";
                                     echo "<div class='card-header' id='heading".$i."'>";
@@ -283,8 +283,7 @@
                                     echo "</div>";
                                     echo "<div id='collapse".$i."' class='collapse' aria-labelledby='headingOne' data-parent='#accordionExample'>";
                                     echo "<div class='card-body' style='padding: 0px'>";
-                                        $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
-                                        mysqli_set_charset($conexion, 'UTF8');
+                                        
                                         $consulta="SELECT nombre,ruta FROM temporadas WHERE idPeliculasSeries=".$id." AND numero=".$i."";
                                         $resultado=mysqli_query($conexion,$consulta);
 
@@ -311,12 +310,15 @@
                                                 </div>
                                             <?php
                                         }
-                                        mysqli_close($conexion);
                                     echo "</div>";
                                     echo "</div>";
                                     echo "</div>";
                                 }
+                            }else{
+                                echo "No hay capitulos en esta serie";
                             }
+                            
+                            mysqli_close($conexion);
                             ?>
                         </div>
                     </div>
