@@ -90,14 +90,20 @@
                         </div>
                     </div>
                     <div class="row text-center">
-                        <div class="col-6">
+                        <div class="col-4">
                             <button class="btn btn-outline-info mt-5" data-toggle="modal" data-target='#ModalTrailer'>
                                 Trailer
                             </button>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <button class="btn btn-primary mt-5" data-toggle="modal" data-target='#ModalPelicula'>
                                 Pelicula
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-success mt-5" data-toggle="modal" data-target='#ModalVoto'>
+                            <i class="fas fa-vote-yea"></i>
+                                Puntua
                             </button>
                         </div>
                     </div>
@@ -124,6 +130,24 @@
                             <source src='<?php echo "../".$rutaVideo?>' type='video/mp4'>
                             Your browser does not support the video tag.
                         </video>
+                    </div>
+                </div>
+            </div>
+<!-- Modal del voto -->
+            <?php
+                $nombrePelicula=str_replace(' ','-',$nombrePelicula);
+            ?>
+            <div class="modal fade" id="ModalVoto" tabindex="-1" role="dialog" aria-labelledby="ModalVoto" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content text-center" style="background: rgba( 89, 99, 149, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );border-radius: 10px;">
+                    <div class="modal-body text-center">
+                        <a href="Puntuacion.php?valor=0&" class="btn btn-primary mt-2" >0<i class="fas fa-star"></i></a>
+                        <a href="Puntuacion.php?valor=1&" class="btn btn-primary mt-2" >1<i class="fas fa-star"></i></a>
+                        <a href="Puntuacion.php?valor=2&" class="btn btn-primary mt-2" >2<i class="fas fa-star"></i></a>
+                        <a href="Puntuacion.php?valor=3&" class="btn btn-primary mt-2" >3<i class="fas fa-star"></i></a>
+                        <a href="Puntuacion.php?valor=4&" class="btn btn-primary mt-2" >4<i class="fas fa-star"></i></a>
+                        <a href="Puntuacion.php?valor=5&" class="btn btn-primary mt-2" >5<i class="fas fa-star"></i></a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -226,28 +250,7 @@
                             Trailer
                         </button>
                     </div>
-                    <!-- <div class="col-6">
-                    <select class="temporada" id="temporada" name="temporada">
-                        <option value="0">Eliga temporada</option>
-                        <?php
-                            //  $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
-                            //  mysqli_set_charset($conexion, 'UTF8');
-                            //  $consulta="SELECT DISTINCT numero FROM temporadas WHERE idPeliculasSeries=$id";
-                            //  $resultado=mysqli_query($conexion,$consulta);
-                     
-                            //  while($fila=mysqli_fetch_row($resultado)){
-                            //     $numero=$fila[0];
-                            //  }
-                            //  mysqli_close($conexion);
-                             
-                            // for ($i=1;$i<=$numero;$i++){
-                            //     echo "<option class='season' value='".$id." ".$i."'>Temporada ".$i."</option>";
-                            // }
-                        ?>
-                    </select>
-                    </div> -->
                 </div>
-                <!-- <div id="container-series"></div> -->
                 <div class="row">
                     <div class="col-12 mt-5">
                         <div class="accordion" id="accordionExample">
@@ -274,7 +277,7 @@
                                     echo "</h2>";
                                     echo "</div>";
                                     echo "<div id='collapse".$i."' class='collapse' aria-labelledby='headingOne' data-parent='#accordionExample'>";
-                                    echo "<div class='card-body'>";
+                                    echo "<div class='card-body' style='padding: 0px'>";
                                         $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
                                         mysqli_set_charset($conexion, 'UTF8');
                                         $consulta="SELECT nombre,ruta FROM temporadas WHERE idPeliculasSeries=".$id." AND numero=".$i."";
@@ -285,10 +288,21 @@
                                             $ruta=$fila[1];
                                             $nombreCambiado=str_replace(' ','',$nombre);
                                             ?>
-                                                <div class="">
-                                                    <button class="btn btn-outline-info" data-toggle="modal" data-target=<?php echo "#ModalCapitulo".$nombreCambiado.""?>>
-                                                        <?php echo $nombre ?>
+                                                <div class="cap">
+                                                <?php echo $nombre ?>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target=<?php echo "#ModalCapitulo".$nombreCambiado.""?>>
+                                                        Ver Capitulo
                                                     </button>
+                                                </div>
+                                                <div class="modal fade" id=<?php echo "ModalCapitulo".$nombreCambiado.""?> tabindex="-1" role="dialog" aria-labelledby="#ModalCapitulo">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content" style="background-color:black;">
+                                                            <video id='trailer' width='100%' controls>
+                                                                <source src='<?php echo "../".$ruta?>' type='video/mp4'>
+                                                                Your browser does not support the video tag.
+                                                            </video>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             <?php
                                         }
