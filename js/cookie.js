@@ -22,9 +22,25 @@ function getCookie(name) {
 
 function comporbar() {
     var Usuario = getCookie("Usuario");
-    var id = getCookie("Id");
+    var Id = getCookie("Id");
+    var Tiempo = getCookie("Tiempo");
+    var fecha = formatDate(new Date());
 
-    if (Usuario == null && id == null) {
+    if (Usuario == null && Id == null && Tiempo == null || fecha >= Tiempo) {
         window.location.href = "../index.php";
     }
+}
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
 }
