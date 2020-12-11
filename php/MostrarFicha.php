@@ -65,7 +65,7 @@
                                 $array = explode(",", $categoria);
                                 foreach ($array as $valor) {
                                     $valor=trim($valor);
-                                    echo "<a href='Buscar.php?director=$valor'>$valor</a> ";
+                                    echo "<a href='Peliculas.php?genero=$valor'>$valor</a> ";
                                 }
                             ?>
                         </div>
@@ -75,7 +75,7 @@
                                 $array = explode(",", $actores);
                                 foreach ($array as $valor) {
                                     $valor=trim($valor);
-                                    echo "<a href='Buscar.php?director=$valor'>$valor</a> ";
+                                    echo "<a href='Buscar.php?actor=$valor'>$valor</a> ";
                                 }
                             ?>
                             ...
@@ -209,7 +209,7 @@
                     </div>    
                     <div class="col-3 text-white">
                         <?php
-                            echo "<a href='Peliculas.php?ano=$ano'>$ano</a>";
+                            echo "<a href='Series.php?ano=$ano'>$ano</a>";
                         ?>
                     </div>
                 </div>
@@ -220,7 +220,7 @@
                                 $array = explode(",", $categoria);
                                 foreach ($array as $valor) {
                                     $valor=trim($valor);
-                                    echo "<a href='Buscar.php?director=$valor'>$valor</a> ";
+                                    echo "<a href='Series.php?genero=$valor'>$valor</a> ";
                                 }
                             ?>
                         </div>
@@ -230,7 +230,7 @@
                                 $array = explode(",", $actores);
                                 foreach ($array as $valor) {
                                     $valor=trim($valor);
-                                    echo "<a href='Buscar.php?director=$valor'>$valor</a> ";
+                                    echo "<a href='Buscar.php?actor=$valor'>$valor</a> ";
                                 }
                             ?>
                             ...

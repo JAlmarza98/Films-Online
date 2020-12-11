@@ -6,6 +6,7 @@
     <META name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/catalogo.css" />
+    <link rel="stylesheet" href="../css/pelisSeries.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,16 +15,16 @@
     <script src="https://kit.fontawesome.com/5c4ea47aab.js" crossorigin="anonymous"></script>
     <script src="../js/lista.js"></script>
 </head>
-<body>
+<body style="background-color:  #353746;">
     <?php
         include 'MostrarCatalogo.php';
         include 'MostrarLista.php';
         include '../html/header.html';
     ?>
     
-    <div class="cuerpo">
-    <div class="row">
-            <div class="col-lg-2 offset-lg-1 filtro py-3">
+    <div class="container-fluid mt-5">
+        <div class="row">  
+            <div class="col-lg-2 offset-lg-1 filtro">
                 </form>
                     <div class="col-12">
                         <span id="buscar">
@@ -57,12 +58,12 @@
                             <input type="radio" value="Terror" id="genero" name="genero"><label>&nbspTerror </label><br>
                             <input type="radio" value="Thriller" id="genero" name="genero"><label>&nbspThriller </label><br> 
                         <span> 
-                    </div> 
+                        </div>
                     <div class="col-12">
                         <span id="anadirAno">
                                 <hr>
                                 <?php
-                                    mostrarAnos();
+                                    mostrarAnos($tipo);
                                 ?>
                         <span> 
                     </div>
@@ -96,13 +97,7 @@
             </div>
         </div>
     </div>
-        <?php
-        include '../html/footer.html';
-    ?>
-    </div>
-
-    
-
+            
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
