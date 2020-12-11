@@ -295,14 +295,14 @@
                                             ?>
                                                 <div class="cap">
                                                 <?php echo $nombre ?>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target=<?php echo "#ModalCapitulo".$nombreCambiado.""?>>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#ModalCapitulo">
                                                         Ver Capitulo
                                                     </button>
                                                 </div>
-                                                <div class="modal fade" id=<?php echo "ModalCapitulo".$nombreCambiado.""?> tabindex="-1" role="dialog" aria-labelledby="#ModalCapitulo">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal fade" id="ModalCapitulo" tabindex="-1" role="dialog" aria-labelledby="#ModalCapitulo">
+                                                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                                         <div class="modal-content" style="background-color:black;">
-                                                            <video id='trailer' width='100%' controls>
+                                                            <video id='capitulo' width='100%' controls>
                                                                 <source src='<?php echo "../".$ruta?>' type='video/mp4'>
                                                                 Your browser does not support the video tag.
                                                             </video>
