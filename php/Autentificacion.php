@@ -13,6 +13,7 @@
                     if($fecha_actual<=$fila[3]){
                         setcookie("Usuario", $email, time() + 36000, "/");
                         setcookie("Id", $fila[0], time() + 36000, "/");
+                        setcookie("Tiempo", $fila[3], time() + 36000, "/");
                         header('Location: ./Catalogo.php');
                     }else{
                         setcookie("Usuario", $email, time() + 36000, "/");
