@@ -226,28 +226,7 @@
                             Trailer
                         </button>
                     </div>
-                    <!-- <div class="col-6">
-                    <select class="temporada" id="temporada" name="temporada">
-                        <option value="0">Eliga temporada</option>
-                        <?php
-                            //  $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
-                            //  mysqli_set_charset($conexion, 'UTF8');
-                            //  $consulta="SELECT DISTINCT numero FROM temporadas WHERE idPeliculasSeries=$id";
-                            //  $resultado=mysqli_query($conexion,$consulta);
-                     
-                            //  while($fila=mysqli_fetch_row($resultado)){
-                            //     $numero=$fila[0];
-                            //  }
-                            //  mysqli_close($conexion);
-                             
-                            // for ($i=1;$i<=$numero;$i++){
-                            //     echo "<option class='season' value='".$id." ".$i."'>Temporada ".$i."</option>";
-                            // }
-                        ?>
-                    </select>
-                    </div> -->
                 </div>
-                <!-- <div id="container-series"></div> -->
                 <div class="row">
                     <div class="col-12 mt-5">
                         <div class="accordion" id="accordionExample">
@@ -274,7 +253,7 @@
                                     echo "</h2>";
                                     echo "</div>";
                                     echo "<div id='collapse".$i."' class='collapse' aria-labelledby='headingOne' data-parent='#accordionExample'>";
-                                    echo "<div class='card-body'>";
+                                    echo "<div class='card-body' style='padding: 0px'>";
                                         $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
                                         mysqli_set_charset($conexion, 'UTF8');
                                         $consulta="SELECT nombre,ruta FROM temporadas WHERE idPeliculasSeries=".$id." AND numero=".$i."";
@@ -285,10 +264,21 @@
                                             $ruta=$fila[1];
                                             $nombreCambiado=str_replace(' ','',$nombre);
                                             ?>
-                                                <div class="">
-                                                    <button class="btn btn-outline-info" data-toggle="modal" data-target=<?php echo "#ModalCapitulo".$nombreCambiado.""?>>
-                                                        <?php echo $nombre ?>
+                                                <div class="cap">
+                                                <?php echo $nombre ?>
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target=<?php echo "#ModalCapitulo".$nombreCambiado.""?>>
+                                                        Ver Capitulo
                                                     </button>
+                                                </div>
+                                                <div class="modal fade" id=<?php echo "ModalCapitulo".$nombreCambiado.""?> tabindex="-1" role="dialog" aria-labelledby="#ModalCapitulo">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content" style="background-color:black;">
+                                                            <video id='trailer' width='100%' controls>
+                                                                <source src='<?php echo "../".$ruta?>' type='video/mp4'>
+                                                                Your browser does not support the video tag.
+                                                            </video>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             <?php
                                         }
