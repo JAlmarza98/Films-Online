@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 function mostrarHome(){
     var peticion=$.ajax({
-        url:"home.html",
+        url:"../php/Home.php",
         type:"Post",
         async:true,
         data:{
@@ -22,12 +22,12 @@ function mostrarHome(){
 
 function mostrarUsers(){
     var peticion=$.ajax({
-        url:"users.html",
+        url:"../php/Users.php",
         type:"Post",
         async:true,
         data:{
         },
-        success:function(data){
+        success:function(){
             $("#contenido").html(peticion.responseText);
         }
     })
@@ -35,7 +35,7 @@ function mostrarUsers(){
 
 function mostrarFilms(){
     var peticion=$.ajax({
-        url:"films.html",
+        url:"../php/Films.php",
         type:"Post",
         async:true,
         data:{
@@ -48,7 +48,7 @@ function mostrarFilms(){
 
 function mostrarSeries(){
     var peticion=$.ajax({
-        url:"series.html",
+        url:"../php/SeriesAdmin.php",
         type:"Post",
         async:true,
         data:{
@@ -61,7 +61,7 @@ function mostrarSeries(){
 
 function mostrarCapital(){
     var peticion=$.ajax({
-        url:"capital.html",
+        url:"../php/Capital.php",
         type:"Post",
         async:true,
         data:{

@@ -21,6 +21,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="../js/metodoAdmin.js"></script>
+    <script src="../js/jquery.min.js"></script>
   </head>
   <body style="overflow: hidden">
     <div class="dash-menu">
