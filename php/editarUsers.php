@@ -23,12 +23,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <script src="../js/validar.js"></script>
   </head>
   <body style="background-color: #353746;color: white;">
     <?php
       include '../html/header.html';
     ?>
-
+    <form action="ModificarUsuario.php" method="Post" onsubmit="comprobarDatosFormulario()">
     <div class="container" >
       <div class="row" >
         <div class="col-10 offset-1 mt-5 mb-5" >
@@ -37,30 +38,30 @@
           </div>
         </div>
         <div class="col-10 offset-1 mt-5">
-          <form action="#">
             <div class="form-group">
               <label for="AddName">Nombre</label>
               <input type="text" class="form-control" id="AddName" name="AddName" placeholder="Introduce tu nombre">
+              <span id="errorAddName"></span>
             </div>
             <div class="form-group">
               <label for="AddLastName">Apellido</label>
               <input type="text" class="form-control" id="AddLastName" name="AddLastName" placeholder="Introduce tu Apellido">
+              <span id="errorAddLastName"></span>
             </div>
             <div class="form-group">
               <label for="AddDirection">Dirección</label>
-              <input type="text" class="form-control" id="AddDirection" name="AddDirection" placeholder="Introduce tu direccion (no es obligatorio)">   
+              <input type="text" class="form-control" id="AddDirection" name="AddDirection" placeholder="Introduce tu direccion (no es obligatorio)">
+              <span id="errorAddDirection"></span>   
             </div>
             <div class="form-group">
               <label for="AddTelf">Teléfono</label>
               <input type="tel" class="form-control" id="AddTelf" name="AddTelf" placeholder="Introduce tu nº de telefono(no es obligatorio)">
-            </div>
-            <div class="form-group">
-              <label for="AddEmail">Email</label>
-              <input type="email" class="form-control" id="AddEmail" name="AddEmail" placeholder="Introduce tu email">
+              <span id="errorAddTelf"></span>
             </div>
             <div class="form-group">
               <label for="AddPassword">Contraseña</label>
               <input type="password" class="form-control" id="AddPassword" name="AddPassword" placeholder="Introduce tu contraseña">
+              <span id="errorAddPassword"></span>
             </div>
           </form>
         </div>
@@ -68,9 +69,8 @@
           <div type="button" class="btn btn-outline-info mr-3" onclick="window.location.href='../php/Catalogo.php'">
             Cancelar
           </div >
-          <button class="btn btn-primary ">
-            Guardar Cambios
-          </button>
+          <input type="submit" name="submit" value="Guardar Cambios"/>
+      </form>
         </div>
       </div>
     </div>

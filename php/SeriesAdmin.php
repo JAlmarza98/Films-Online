@@ -1,86 +1,118 @@
-<div class="container animate__animated animate__fadeIn">
-  <div class="row">
-    <div class="col-12 users mt-5 mb-5">
-      <div class="table-top ml-5">
-        <h4>Todas las peliculas</h4>
-        <form class="form-inline">
-          <input
-            class="form-control"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </form>
-      </div>
-      <div class="tabla-films">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Categoria</th>
-              <th>Puntuación</th>
-              <th>Actualizacion</th>
-              <th>Editar</th>
-              <th>Eliminar Serie</th>
-              <th>Añadir Capitulo</th>
-              <th>Eliminar Capitulo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="">
-              <td>1</td>
-              <td>Juego de Tronos</td>
-              <td>Drama,Guerra</td>
-              <td>4</td>
-              <td>0/0/0000</td>
-              <td>
-                <button
-                  class="btn btn-info"
-                  data-toggle="modal"
-                  data-target="#editSerieModal"
-                >
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-              <td>
-                <button
-                  class="btn btn-success"
-                  data-toggle="modal"
-                  data-target="#uploadCapModal"
-                >
-                  <i class="fas fa-upload"></i>
-                </button>
-              </td>
-              <td>
-                <button
-                  class="btn btn-danger"
-                  data-toggle="modal"
-                  data-target="#deleteCapModal"
-                >
-                  <i class="fas fa-times"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="total">Total de series: <span>32</span></div>
-    </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Films Online-Admin</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../css/dash-board.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/5c4ea47aab.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../js/jquery.min.js"></script>
+  </head>
+  <body style="overflow: hidden">
+<?php
+  include "Admin.php";
+?>
+<div class="dash-body">
+  <div class="contenido" id="contenido">
+    <div class="container animate__animated animate__fadeIn">
+      <div class="row">
+        <div class="col-12 users mt-5 mb-5">
+          <div class="table-top ml-5">
+            <h4>Todas las peliculas</h4>
+            <form class="form-inline">
+              <input
+                class="form-control"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+            </form>
+          </div>
+          <div class="tabla-films">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Categoria</th>
+                  <th>Puntuación</th>
+                  <th>Actualizacion</th>
+                  <th>Editar</th>
+                  <th>Eliminar Serie</th>
+                  <th>Añadir Capitulo</th>
+                  <th>Eliminar Capitulo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="">
+                  <td>1</td>
+                  <td>Juego de Tronos</td>
+                  <td>Drama,Guerra</td>
+                  <td>4</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button
+                      class="btn btn-info"
+                      data-toggle="modal"
+                      data-target="#editSerieModal"
+                    >
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-success"
+                      data-toggle="modal"
+                      data-target="#uploadCapModal"
+                    >
+                      <i class="fas fa-upload"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-danger"
+                      data-toggle="modal"
+                      data-target="#deleteCapModal"
+                    >
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="total">Total de series: <span>32</span></div>
+        </div>
 
-    <div class="col-12 mt-5 mb-5">
-      <button
-        class="btn btn-success total"
-        data-toggle="modal"
-        data-target="#newFilm"
-      >
-        Añadir Serie
-      </button>
+        <div class="col-12 mt-5 mb-5">
+          <button
+            class="btn btn-success total"
+            data-toggle="modal"
+            data-target="#newFilm"
+          >
+            Añadir Serie
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -486,3 +518,5 @@
     </div>
   </div>
 </div>
+</body>
+</html>
