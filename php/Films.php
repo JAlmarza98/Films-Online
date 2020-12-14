@@ -1,321 +1,353 @@
-<div class="container animate__animated animate__fadeIn">
-  <div class="row">
-    <div class="col-10 offset-1 users mt-5 mb-5">
-      <div class="table-top">
-        <h4>Todas las peliculas</h4>
-        <form class="form-inline">
-          <input
-            class="form-control"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </form>
-      </div>
-      <div class="tabla-films">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Categoria</th>
-              <th>Puntuación</th>
-              <th>Actualizacion</th>
-              <th>Editar</th>
-              <th>Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="">
-              <td>1</td>
-              <td>1917</td>
-              <td>Drama,Guerra</td>
-              <td>3</td>
-              <td>0/0/0000</td>
-              <td>
-                <button
-                  class="btn btn-info"
-                  data-toggle="modal"
-                  data-target="#editFilmModal"
-                >
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>4</td>
-              <td>Vengadores: End Game</td>
-              <td>Acción,Aventura,Drama</td>
-              <td>4.8</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>1</td>
-              <td>1917</td>
-              <td>Drama,Guerra</td>
-              <td>3</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>4</td>
-              <td>Vengadores: End Game</td>
-              <td>Acción,Aventura,Drama</td>
-              <td>4.8</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>1</td>
-              <td>1917</td>
-              <td>Drama,Guerra</td>
-              <td>3</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>4</td>
-              <td>Vengadores: End Game</td>
-              <td>Acción,Aventura,Drama</td>
-              <td>4.8</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>1</td>
-              <td>1917</td>
-              <td>Drama,Guerra</td>
-              <td>3</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>4</td>
-              <td>Vengadores: End Game</td>
-              <td>Acción,Aventura,Drama</td>
-              <td>4.8</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>1</td>
-              <td>1917</td>
-              <td>Drama,Guerra</td>
-              <td>3</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>4</td>
-              <td>Vengadores: End Game</td>
-              <td>Acción,Aventura,Drama</td>
-              <td>4.8</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>1</td>
-              <td>1917</td>
-              <td>Drama,Guerra</td>
-              <td>3</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>4</td>
-              <td>Vengadores: End Game</td>
-              <td>Acción,Aventura,Drama</td>
-              <td>4.8</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>1</td>
-              <td>1917</td>
-              <td>Drama,Guerra</td>
-              <td>3</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>4</td>
-              <td>Vengadores: End Game</td>
-              <td>Acción,Aventura,Drama</td>
-              <td>4.8</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>1</td>
-              <td>1917</td>
-              <td>Drama,Guerra</td>
-              <td>3</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-            <tr class="">
-              <td>4</td>
-              <td>Vengadores: End Game</td>
-              <td>Acción,Aventura,Drama</td>
-              <td>4.8</td>
-              <td>0/0/0000</td>
-              <td>
-                <button class="btn btn-info">
-                  <i class="fas fa-edit"></i>
-                </button>
-              </td>
-              <td>
-                <button class="btn btn-danger">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="total">Total de peliculas: <span>65</span></div>
-    </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Films Online-Admin</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../css/dash-board.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/5c4ea47aab.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../js/jquery.min.js"></script>
+  </head>
+  <body style="overflow: hidden">
+<?php
+  include "Admin.php";
+?>
+<div class="dash-body">
+  <div class="contenido" id="contenido">
+    <div class="container animate__animated animate__fadeIn">
+      <div class="row">
+        <div class="col-10 offset-1 users mt-5 mb-5">
+          <div class="table-top">
+            <h4>Todas las peliculas</h4>
+            <form class="form-inline">
+              <input
+                class="form-control"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+            </form>
+          </div>
+          <div class="tabla-films">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Categoria</th>
+                  <th>Puntuación</th>
+                  <th>Actualizacion</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="">
+                  <td>1</td>
+                  <td>1917</td>
+                  <td>Drama,Guerra</td>
+                  <td>3</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button
+                      class="btn btn-info"
+                      data-toggle="modal"
+                      data-target="#editFilmModal"
+                    >
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>4</td>
+                  <td>Vengadores: End Game</td>
+                  <td>Acción,Aventura,Drama</td>
+                  <td>4.8</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>1</td>
+                  <td>1917</td>
+                  <td>Drama,Guerra</td>
+                  <td>3</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>4</td>
+                  <td>Vengadores: End Game</td>
+                  <td>Acción,Aventura,Drama</td>
+                  <td>4.8</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>1</td>
+                  <td>1917</td>
+                  <td>Drama,Guerra</td>
+                  <td>3</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>4</td>
+                  <td>Vengadores: End Game</td>
+                  <td>Acción,Aventura,Drama</td>
+                  <td>4.8</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>1</td>
+                  <td>1917</td>
+                  <td>Drama,Guerra</td>
+                  <td>3</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>4</td>
+                  <td>Vengadores: End Game</td>
+                  <td>Acción,Aventura,Drama</td>
+                  <td>4.8</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>1</td>
+                  <td>1917</td>
+                  <td>Drama,Guerra</td>
+                  <td>3</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>4</td>
+                  <td>Vengadores: End Game</td>
+                  <td>Acción,Aventura,Drama</td>
+                  <td>4.8</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>1</td>
+                  <td>1917</td>
+                  <td>Drama,Guerra</td>
+                  <td>3</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>4</td>
+                  <td>Vengadores: End Game</td>
+                  <td>Acción,Aventura,Drama</td>
+                  <td>4.8</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>1</td>
+                  <td>1917</td>
+                  <td>Drama,Guerra</td>
+                  <td>3</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>4</td>
+                  <td>Vengadores: End Game</td>
+                  <td>Acción,Aventura,Drama</td>
+                  <td>4.8</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>1</td>
+                  <td>1917</td>
+                  <td>Drama,Guerra</td>
+                  <td>3</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr class="">
+                  <td>4</td>
+                  <td>Vengadores: End Game</td>
+                  <td>Acción,Aventura,Drama</td>
+                  <td>4.8</td>
+                  <td>0/0/0000</td>
+                  <td>
+                    <button class="btn btn-info">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="total">Total de peliculas: <span>65</span></div>
+        </div>
 
-    <div class="col-12 mt-5 mb-5">
-      <button
-        class="btn btn-success total"
-        data-toggle="modal"
-        data-target="#newFilm"
-      >
-        Añadir Pelicula
-      </button>
+        <div class="col-12 mt-5 mb-5">
+          <button
+            class="btn btn-success total"
+            data-toggle="modal"
+            data-target="#newFilm"
+          >
+            Añadir Pelicula
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -471,3 +503,6 @@
     </div>
   </div>
 </div>
+
+</body>
+</html>
