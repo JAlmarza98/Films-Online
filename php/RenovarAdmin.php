@@ -34,10 +34,5 @@
         }
 
         mysqli_close($conexion);
-    }else{
-        echo "<script>
-                alert('No se ha actualizado ya que el id no se corresponde a ningun usuario.');
-                window.location='Admin.php'
-            </script>";
     }
 ?>

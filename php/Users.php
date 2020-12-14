@@ -2,7 +2,7 @@
   <div class="row mb-5">
     <div class="col-10 offset-1 users mt-5 mb-5">
       <div class="table-top">
-        <h4>Total suscripciones:</h4>
+        <h4>Todos los usuarios</h4>
         <form class="form-inline">
           <input
             class="form-control"
@@ -32,19 +32,11 @@
                 $caducada=0;
                 $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
                 mysqli_set_charset($conexion, 'UTF8');
-
-                $consulta="select idUsuario from usuarios";
-                $resultado=mysqli_query($conexion,$consulta);
-                $fila=mysqli_fetch_row($resultado);
-                echo "<script>";
-                echo "localStorage.setItem('idUsuarios', ".$fila.");";
-                echo "</script>";
-
-                $consulta2="select u.idUsuario,u.nombreUsuario,u.email,f.fechaExpiracion,f.fechaFacturacion,u.nivel,f.tipo,p.tipo 
+                $consulta="select u.idUsuario,u.nombreUsuario,u.email,f.fechaExpiracion,f.fechaFacturacion,u.nivel,f.tipo,p.tipo 
                     from usuarios u,facturacion f, precios p where u.idUsuario=f.idUsuario and f.idPrecios=p.idPrecios order by f.fechaFacturacion desc";
-                $resultado2=mysqli_query($conexion,$consulta2);
+                $resultado=mysqli_query($conexion,$consulta);
                 
-                while($fila=mysqli_fetch_row($resultado2)){
+                while($fila=mysqli_fetch_row($resultado)){
                   $idUsuario=$fila[0];
                   $nombreUsuario=$fila[1];
                   $email=$fila[2];
@@ -53,8 +45,9 @@
                   $nivel=$fila[5];
                   $tipo=$fila[6];
                   $tipoPrecio=$fila[7];
+
                   if($fecha_actual<=$fechaExpiracion){
-                    echo "<tr class=''>";
+                    echo "<tr class=\"\">";
                     echo "<td>".$idUsuario."</td>";
                     echo "<td>".$nombreUsuario."</td>";
                     echo "<td>".$email."</td>";
@@ -67,7 +60,7 @@
                     }
                     echo "</tr>";
                   }else{
-                    echo "<tr class='caducado'>";
+                    echo "<tr class=\"finalizado\">";
                     echo "<td>".$idUsuario."</td>";
                     echo "<td>".$nombreUsuario."</td>";
                     echo "<td>".$email."</td>";
@@ -173,8 +166,7 @@
       ],
     },
   });
-</script>
-<script>
+
   function renovar(dias) {
     var numberID = document.getElementById("numberID").value;
     window.location.href = "RenovarAdmin.php?id="+numberID+"&dias="+dias;
@@ -182,14 +174,23 @@
   
   function validarID(){
     var numberID = document.getElementById("numberID").value;
-    var lastname = localStorage.getItem("idUsuarios");
     alert(numberID);
-    alert(lastname);
-    /*
-    if(ok){
-      document.getElementById('numberID').style.color="red";
-    }else{
-      document.getElementById('numberID').style.color="green";
-    }*/
-  }
+    var peticion=$.ajax({
+        url:"ComprobarUsuarioID.php",
+        type:"POST",
+        async:true,
+        data:{
+          numberID,numberID
+        },
+        success:function(data){
+            var ok=peticion.responseText;
+            alert(ok);
+            if(ok){
+              document.getElementById('numberID').style.color="red";
+            }else{
+              document.getElementById('numberID').style.color="green";
+            }
+        }
+    })
+}
 </script>
