@@ -20,7 +20,7 @@
     <?php
         include 'MostrarCatalogo.php';
         include 'MostrarLista.php';
-        include '../html/header.html';
+        include 'header.php';
     ?>
     
     <div class="container-fluid mt-5">

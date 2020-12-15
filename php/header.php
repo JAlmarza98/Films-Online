@@ -65,7 +65,12 @@
               >Editar perfil</a
             >
             <a class="dropdown-item" href="Cerrar.php">Cerrar sesion</a>
-            <a class="dropdown-item" href="Home.php">Admin</a>
+            <?php
+              $nivel=$_COOKIE["Nivel"];
+              if($nivel === "0"){
+                echo "<a class='dropdown-item' href='Home.php'>Admin</a>";
+              }
+            ?>
           </div>
         </div>
       </div>

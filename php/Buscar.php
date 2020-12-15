@@ -17,13 +17,13 @@
 <body>
     <?php
         include 'MostrarBusqueda.php';
-        include '../html/header.html';
+        include 'header.php';
         mostrarPromo();
     ?>
     
     <div class="cuerpo">
         <div class="mt-5 mb-5">
-            <p class="ml-5">Ultimas añadidas</p>
+            <p class="ml-5 mt-3">Ultimas añadidas</p>
             <div class="carteles">
             <div class='margen item'></div>
                 <?php
@@ -38,21 +38,21 @@
                 if(isset($_POST['search'])){
                     $buscar=$_POST['search'];
                     $tipoBusqueda="pelicula/Serie";
-                    echo "Películas / Series que coincidan con: ".$buscar;
+                    echo "<h5 class='ml-5'>Películas / Series que coincidan con: '' $buscar ''</h5>";
                     echo "<div class='col-12 mt-5 mb-5'>";
                     echo "<div class='grid'>";
                     mostrarBusqueda($tipoBusqueda,$buscar);
                 }else if(isset($_GET['director'])){
                     $buscar=$_GET['director'];
                     $tipoBusqueda="director";
-                    echo "Películas / Series que haya dirigido: ".$buscar;
+                    echo "<h5 class='ml-5'>Películas / Series que haya dirigido: '' $buscar ''</h5>";
                     echo "<div class='col-12 mt-5 mb-5'>";
                     echo "<div class='grid'>";
                     mostrarBusqueda($tipoBusqueda,$buscar);
                 }else if(isset($_GET['actor'])){
                     $buscar=$_GET['actor'];
                     $tipoBusqueda="actor";
-                    echo "Películas / Series en las que haya participado: ".$buscar;
+                    echo "<h5 class='ml-5'>Películas / Series en las que haya participado: '' $buscar ''</h5>";
                     echo "<div class='col-12 mt-5 mb-5'>";
                     echo "<div class='grid'>";
                     mostrarBusqueda($tipoBusqueda,$buscar);

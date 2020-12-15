@@ -23,7 +23,7 @@
 <body>
     <?php
         include 'MostrarCatalogo.php';
-        include '../html/header.html';
+        include 'header.php';
         mostrarPromo();
     ?>
     
