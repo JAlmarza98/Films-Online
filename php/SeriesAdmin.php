@@ -32,15 +32,7 @@
       <div class="row">
         <div class="col-12 users mt-5 mb-5">
           <div class="table-top ml-5">
-            <h4>Todas las peliculas</h4>
-            <form class="form-inline">
-              <input
-                class="form-control"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </form>
+            <h4>Todas las Series</h4>
           </div>
           <div class="tabla-films">
             <table>
@@ -126,7 +118,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content" style="background-color: #212531">
+    <div class="modal-content text-white" style="background-color: #212531">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Editar pelicula</h5>
         <button
@@ -189,7 +181,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-xl">
-    <div class="modal-content" style="background-color: #212531">
+    <div class="modal-content text-white" style="background-color: #212531">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Nueva Serie</h5>
         <button
@@ -272,7 +264,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content" style="background-color: #212531">
+    <div class="modal-content text-white" style="background-color: #212531">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Añadir un capitulo</h5>
         <button
@@ -319,7 +311,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content" style="background-color: #212531">
+    <div class="modal-content text-white" style="background-color: #212531">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Eliminar Capitulos</h5>
         <button
@@ -518,5 +510,7 @@
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>
