@@ -22,7 +22,7 @@
 <body style="background-color:  #353746;">
     <?php
         include 'MostrarPeliculasSeries.php';
-        include '../html/header.html';
+        include 'header.php';
         $tipo="Serie";
     ?>
     <div class="mt-5 mb-5">

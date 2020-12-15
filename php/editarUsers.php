@@ -26,7 +26,7 @@
   </head>
   <body style="background-color: #353746;color: white;">
     <?php
-      include '../html/header.html';
+      include 'header.php';
       $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
         mysqli_set_charset($conexion, 'UTF8');
         $consulta="SELECT nombreUsuario,apellidoUsuario,direccion,telefono FROM usuarios WHERE idUsuario='".$_COOKIE["Id"]."' and email='".$_COOKIE["Usuario"]."'";

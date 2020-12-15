@@ -148,12 +148,12 @@
                             </div>
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-12 col-sm-12 col-lg-12 col-xl-12" text-center id="articulo">
+                                    <div class="col-12 col-sm-12 col-lg-12 col-xl-12 mt-3 text-center"  id="articulo">
                                         <?php
                                         if($tipo=='pelicula'){
-                                            echo "<a href='Ficha.php?pelicula=$nombre'><p>$titulo</p></a>";
+                                            echo "<a class='text-white' href='Ficha.php?pelicula=$nombre'><p>$titulo</p></a>";
                                         }else{
-                                            echo "<a href='Ficha.php?serie=$nombre'><p>$titulo</p></a>";
+                                            echo "<a class='text-white' href='Ficha.php?serie=$nombre'><p>$titulo</p></a>";
                                         }
                                         ?>
                                     </div>
@@ -218,7 +218,7 @@
                                     <div class="col-xl-1"></div>
                                     <div class="col-xl-12 text-center">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <?php echo "<a href='AnadirLista.php?anadir=$nombre'>Añadir a la lista </a>" ?>
+                                        <?php echo "<a class='btn btn-primary ml-3' href='AnadirLista.php?anadir=$nombre'>Añadir a la lista </a>" ?>
                                     </div>
                                 </div>
                             </div>

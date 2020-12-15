@@ -29,7 +29,7 @@
     <?php
         include 'MostrarCatalogo.php';
         include 'MostrarFicha.php';
-        include '../html/header.html';
+        include 'header.php';
     ?>
     <div class="mt-5">
         <?php
