@@ -4,6 +4,7 @@
     <title>Films Online-Admin</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../css/dash-board.css" />
+    <link rel="stylesheet" href="../css/catalogo.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -49,46 +50,255 @@
                   <th>Eliminar Capitulo</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="">
-                  <td>1</td>
-                  <td>Juego de Tronos</td>
-                  <td>Drama,Guerra</td>
-                  <td>4</td>
-                  <td>0/0/0000</td>
-                  <td>
-                    <button
-                      class="btn btn-info"
-                      data-toggle="modal"
-                      data-target="#editSerieModal"
+              <?php
+                $cont=0;
+                $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
+                mysqli_set_charset($conexion, 'UTF8');
+
+                $consulta="SELECT idPeliculasSeries,nombre,categoria,rating,fechaActualizacion,director,actores,año,descripcion
+                   FROM peliculasseries WHERE tipo='serie'";
+                $resultado=mysqli_query($conexion,$consulta);
+               
+                while($fila=mysqli_fetch_row($resultado)){
+                  $idPeliculasSeries=$fila[0];
+                  $nombre=$fila[1];
+                  $categoria=$fila[2];
+                  $rating=$fila[3];
+                  $fechaActualizacion=$fila[4];
+                  $director=$fila[5];
+                  $actores=$fila[6];
+                  $year=$fila[7];
+                  $descripcion=$fila[8];
+                  
+                    echo "<tr class=''>";
+                    echo "<td>".$idPeliculasSeries."</td>";
+                    echo "<td>".$nombre."</td>";
+                    echo "<td>".$categoria."</td>";
+                    echo "<td>".$rating."</td>";
+                    echo "<td>".$fechaActualizacion."</td>";
+                    echo "<td>";
+                    echo "<button type='button' class='btn btn-info' data-toggle='modal' data-target='#editFilmModal$idPeliculasSeries'>";
+                    echo "<i class='fas fa-edit'></i>";
+                    echo "</button>";
+                    echo "</td>";
+                    echo "<td>";
+                    echo "<button class='btn btn-danger' onclick='eliminar($idPeliculasSeries)'>";
+                    echo "<i class='fas fa-trash-alt'></i>";
+                    echo "</button>";
+                    echo "</td>";
+                    echo "<td>
+                        <button
+                          class='btn btn-success'
+                          data-toggle='modal'
+                          data-target='#uploadCapModal$idPeliculasSeries'>
+                          <i class='fas fa-upload'></i>
+                        </button>
+                    </td>";
+                    echo "<td>
+                        <button
+                          class='btn btn-danger'
+                          data-toggle='modal'
+                          data-target='#deleteCapModal$idPeliculasSeries'>
+                          <i class='fas fa-times'></i>
+                        </button>
+                    </td>";
+                    echo "</tr>";
+                    $cont++;
+
+                    //Modal para modificar una pelicula ya subida
+                    echo "<div class='modal fade' id='editFilmModal$idPeliculasSeries' tabindex='-1' aria-labelledby='editFilmModal$idPeliculasSeries' aria-hidden='true'>";
+                    echo "<div class='modal-dialog'>";
+                    echo "<div class='modal-content' style='background-color: #212531'>";
+                    echo "<div class='modal-header'>";
+                    echo "<h5 class='modal-title' id='exampleModalLabel$nombre'>Editar pelicula</h5>";
+                    echo "<button
+                              type='button'
+                              class='close'
+                              data-dismiss='modal'
+                              aria-label='Close'
+                            >";
+                    echo "<span aria-hidden='true'>&times;</span>";
+                    echo "</button>";
+                    echo "</div>";
+                    echo "<div class='modal-body'>";
+                    echo "<form action='ModificarPelicula.php' method='POST'>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Nombre</label>";
+                    echo "<input type='text' class='form-control' id='peliculaName' name='peliculaName' value='$nombre'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Categoria</label>";
+                    echo "<input type='text' class='form-control' id='peliculaCategoria' name='peliculaCategoria' value='$categoria'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Director</label>";
+                    echo "<input type='text' class='form-control' id='peliculaDirector' name='peliculaDirector' value='$director'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Reparto</label>";
+                    echo "<input type='text' class='form-control' id='peliculaReparto' name='peliculaReparto' value='$actores'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Año</label>";
+                    echo "<input type='text' class='form-control' id='peliculaYear' name='peliculaYear' value='$year'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label for='exampleFormControlTextarea1'>Descripción</label>";
+                    echo "<textarea
+                                  class='form-control'
+                                  id='peliculaDescipcion'
+                                  name='peliculaDescipcion'
+                                  rows='5'
+                                >$descripcion</textarea>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<input type='hidden' class='form-control' id='id' name='id' value='$idPeliculasSeries'/>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "<div class='modal-footer'>";
+                    echo "<button type='button' class='btn btn-secondary' data-dismiss='modal'>
+                              Cerrar
+                            </button>";
+                    echo " <input type='submit' class='btn btn-primary' name='submit' value='Guardar'/>
+                    </form>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    //Modal para añadir un capitulo a una serie
+                    echo "
+                    <div
+                        class='modal fade'
+                        id='uploadCapModal$idPeliculasSeries'
+                        tabindex='-1'
+                        aria-labelledby='exampleModalLabel$idPeliculasSeries'
+                        aria-hidden='true'
+                      >
+                        <div class='modal-dialog'>
+                          <div class='modal-content text-white' style='background-color: #212531'>
+                            <div class='modal-header'>
+                              <h5 class='modal-title' id='exampleModalLabel$idPeliculasSeries'>Añadir un capitulo</h5>
+                              <button
+                                type='button'
+                                class='close'
+                                data-dismiss='modal'
+                                aria-label='Close'
+                              >
+                                <span aria-hidden='true'>&times;</span>
+                              </button>
+                            </div>
+                            <div class='modal-body'>
+                              <form>
+                                <div class='form-group'>
+                                  <label>Nombre</label>
+                                  <input type='text' class='form-control' id='capNombre' />
+                                </div>
+                                <div class='form-group'>
+                                  <label>Numero</label>
+                                  <input type='text' class='form-control' id='capNumero' />
+                                </div>
+                                <div class='form-file'>
+                                  <label>Capitulo</label>
+                                  <input type='file' id='capitulo' />
+                                </div>
+                              </form>
+                            </div>
+                            <div class='modal-footer'>
+                              <button type='button' class='btn btn-secondary' data-dismiss='modal'>
+                                Cerrar
+                              </button>
+                              <button type='button' class='btn btn-primary'>Guardar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ";
+                    //Modal para eliminar capitulos de una serie
+                    
+                   echo "
+                    <div
+                      class='modal fade'
+                      id='deleteCapModal$idPeliculasSeries'
+                      tabindex='-1'
+                      aria-labelledby='exampleModalLabel$idPeliculasSeries'
+                      aria-hidden='true'
                     >
-                      <i class="fas fa-edit"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <button class="btn btn-danger">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      class="btn btn-success"
-                      data-toggle="modal"
-                      data-target="#uploadCapModal"
-                    >
-                      <i class="fas fa-upload"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      class="btn btn-danger"
-                      data-toggle="modal"
-                      data-target="#deleteCapModal"
-                    >
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </td>
-                </tr>
+                    <div class='modal-dialog'>
+                      <div class='modal-content text-white' style='background-color: #212531'>
+                      <div class='modal-header'>
+                          <h5 class='modal-title' id='exampleModalLabel$idPeliculasSeries'>Eliminar Capitulos</h5>
+                          <button
+                            type='button'
+                            class='close'
+                            data-dismiss='modal'
+                            aria-label='Close'
+                          >
+                            <span aria-hidden='true'>&times;</span>
+                          </button>
+                        </div>
+                        <div class='modal-body'>
+                          <div class='scroll'>
+                            <form>
+                              <table class='text-center'>
+                                <thead>
+                                  <tr>
+                                    <th></th>
+                                    <th>Temporada</th>
+                                    <th>Capitulo</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                    ";
+
+                    $result = $conexion->query("SELECT COUNT(*) as total_products FROM temporadas WHERE idPeliculasSeries=$idPeliculasSeries");
+                    $row = $result->fetch_assoc();
+                    $num_total_rows = $row['total_products'];
+
+                    if ($num_total_rows > 0) {
+
+                      $consulta2="SELECT idTemporadas,numero,nombre FROM temporadas WHERE idPeliculasSeries=$idPeliculasSeries";
+                      $resultado2=mysqli_query($conexion,$consulta2);
+                  
+                      while($fila2=mysqli_fetch_row($resultado2)){
+                        $idTemporadas=$fila2[0];
+                        $numeroTemporada=$fila2[0];
+                        $numeroTemporada=$fila2[1];
+  
+                        echo "<tr>
+                          <td>
+                            <input type='checkbox' name='".$idTemporadas."' value='".$idTemporadas."' />
+                          </td>
+                          <td>".$numeroTemporada."</td>
+                          <td>".$numeroTemporada."</td>
+                        </tr>
+                        ";
+                      }
+
+                    }else{
+                      echo "<tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        ";
+                    }
+                   echo " </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class='modal-footer'>
+                          <button type='button' class='btn btn-dark' data-dismiss='modal'>
+                            Cerrar
+                          </button>
+                          <button type='button' class='btn btn-danger'>Eliminar</button>
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>";
+                }
+                mysqli_close($conexion);
+              ?>
               </tbody>
             </table>
           </div>
@@ -109,69 +319,6 @@
   </div>
 </div>
 <!-- Modales -->
-<!-- Modal para modificar una Serie ya subida -->
-<div
-  class="modal fade"
-  id="editSerieModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content text-white" style="background-color: #212531">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar pelicula</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" class="form-control" id="peliculaName" />
-          </div>
-          <div class="form-group">
-            <label>Categoria</label>
-            <input type="text" class="form-control" id="peliculaCategoria" />
-          </div>
-          <div class="form-group">
-            <label>Director</label>
-            <input type="text" class="form-control" id="peliculaDirector" />
-          </div>
-          <div class="form-group">
-            <label>Reparto</label>
-            <input type="text" class="form-control" id="peliculaReparto" />
-          </div>
-          <div class="form-group">
-            <label>Año</label>
-            <input type="text" class="form-control" id="peliculaYear" />
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Descripción</label>
-            <textarea
-              class="form-control"
-              id="peliculaDescipcion"
-              rows="5"
-            ></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Cerrar
-        </button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Modal para subir una nueva pelicula -->
 <div
   class="modal fade"
@@ -250,262 +397,6 @@
           Cerrar
         </button>
         <button type="button" class="btn btn-primary">Subir Serie</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal para añadir un capitulo a una serie -->
-<div
-  class="modal fade"
-  id="uploadCapModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content text-white" style="background-color: #212531">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Añadir un capitulo</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" class="form-control" id="capNombre" />
-          </div>
-          <div class="form-group">
-            <label>Numero</label>
-            <input type="text" class="form-control" id="capNumero" />
-          </div>
-          <div class="form-file">
-            <label>Capitulo</label>
-            <input type="file" id="capitulo" />
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Cerrar
-        </button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal para eliminar capitulos de una serie-->
-<div
-  class="modal fade"
-  id="deleteCapModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content text-white" style="background-color: #212531">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Eliminar Capitulos</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="scroll">
-          <form>
-            <table class="text-center">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Temporada</th>
-                  <th>Capitulo</th>
-                  <th>Nombre</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_1" value="1_1" />
-                  </td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_2" value="1_2" />
-                  </td>
-                  <td>1</td>
-                  <td>2</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_3" value="1_3" />
-                  </td>
-                  <td>1</td>
-                  <td>3</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_4" value="1_4" />
-                  </td>
-                  <td>1</td>
-                  <td>4</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_5" value="1_5" />
-                  </td>
-                  <td>1</td>
-                  <td>5</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_6" value="1_6" />
-                  </td>
-                  <td>1</td>
-                  <td>6</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_7" value="1_7" />
-                  </td>
-                  <td>1</td>
-                  <td>7</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_8" value="1_8" />
-                  </td>
-                  <td>1</td>
-                  <td>8</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_9" value="1_9" />
-                  </td>
-                  <td>1</td>
-                  <td>9</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap1_10" value="1_10" />
-                  </td>
-                  <td>1</td>
-                  <td>10</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_1" value="2_1" />
-                  </td>
-                  <td>2</td>
-                  <td>1</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_2" value="2_2" />
-                  </td>
-                  <td>2</td>
-                  <td>2</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_3" value="2_3" />
-                  </td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_4" value="2_4" />
-                  </td>
-                  <td>2</td>
-                  <td>4</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_5" value="2_5" />
-                  </td>
-                  <td>2</td>
-                  <td>5</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_6" value="2_6" />
-                  </td>
-                  <td>2</td>
-                  <td>6</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_7" value="2_7" />
-                  </td>
-                  <td>2</td>
-                  <td>7</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_8" value="2_8" />
-                  </td>
-                  <td>2</td>
-                  <td>8</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_9" value="2_9" />
-                  </td>
-                  <td>2</td>
-                  <td>9</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="checkbox" name="cap2_10" value="2_10" />
-                  </td>
-                  <td>2</td>
-                  <td>10</td>
-                  <td>{{Nombre del capitulo}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-dark" data-dismiss="modal">
-          Cerrar
-        </button>
-        <button type="button" class="btn btn-danger">Eliminar</button>
       </div>
     </div>
   </div>
