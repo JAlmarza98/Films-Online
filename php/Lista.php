@@ -23,7 +23,7 @@
         include 'header.php';
     ?>
     
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-5" style="min-height: 1150px">
         <div class="row">  
             <div class="col-lg-2 offset-lg-1 filtro">
                 </form>
@@ -82,7 +82,7 @@
                 </form>
             </div>
             <div class='col-lg-8' id="mostrar">
-                <div class="grid">
+                <div class="grid text-white">
                     <?php
                         if(isset($_GET['genero'])){
                             mostrarMiListaGenero($_GET['genero']);
@@ -98,7 +98,9 @@
             </div>
         </div>
     </div>
-            
+    <?php
+        include '../html/footer.html';
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>

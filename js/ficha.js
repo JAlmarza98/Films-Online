@@ -8,9 +8,4 @@ $(document).ready(function(){
         $('#pelicula').get(0).pause()
     });
 
-    $("#ModalCapitulo").on('hidden.bs.modal', function (e) {
-        $('#capitulo').get(0).pause();
-        $('#capitulo').get(0).currentTime = 0;
-    });
-
 })

@@ -24,12 +24,6 @@
         </div>
         <div class="name">Series</div>
       </div>
-      <div class="seccion" id="capital" onclick="window.location.href='Capital.php'">
-        <div class="icon">
-          <i class="fas fa-dollar-sign"></i>
-        </div>
-        <div class="name">Capital</div>
-      </div>
       <div
         class="seccion bottom"
         onclick="window.location.href='Catalogo.php'"

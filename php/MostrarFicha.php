@@ -294,20 +294,26 @@
                                             ?>
                                                 <div class="cap">
                                                 <?php echo $nombre ?>
-                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#ModalCapitulo">
+                                                    <button class="btn btn-primary" data-toggle="modal" <?php echo "data-target='#".$nombreCambiado."'";?>>
                                                         Ver Capitulo
                                                     </button>
                                                 </div>
-                                                <div class="modal fade" id="ModalCapitulo" tabindex="-1" role="dialog" aria-labelledby="#ModalCapitulo">
+                                                <div class="modal fade" <?php echo "id='".$nombreCambiado."'aria-labelledby='".$nombreCambiado."'";?> tabindex="-1" role="dialog" >
                                                     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                                         <div class="modal-content" style="background-color:black;">
-                                                            <video id='capitulo' width='100%' controls>
+                                                            <video <?php echo "id='cap".$nombreCambiado."'";?> width='100%' controls>
                                                                 <source src='<?php echo "../".$ruta?>' type='video/mp4'>
                                                                 Your browser does not support the video tag.
                                                             </video>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <script>
+                                                    $("<?php echo "#".$nombreCambiado;?>").on('hidden.bs.modal', function (e) {
+                                                        $(<?php echo "'#cap".$nombreCambiado."'";?>).get(0).pause();
+                                                        $(<?php echo "'#cap".$nombreCambiado."'";?>).get(0).currentTime = 0;
+                                                    });
+                                                </script>
                                             <?php
                                         }
                                     echo "</div>";

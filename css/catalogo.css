@@ -222,6 +222,9 @@ a {
     height: fit-content;
     width: 500px;
   }
+  #nombre {
+    font-size: 40px !important;
+  }
 }
 @media (min-width: 889px) and (max-width: 1200px) {
   .cuerpo {
