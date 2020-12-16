@@ -26,6 +26,10 @@
       function eliminar(id) {
         window.location.href = "EliminarSerie.php?id="+id;
       }
+
+      function eliminarCapitulo(id) {
+        window.location.href = "EliminarCapitulo.php?id="+id;
+      }
     </script>
   </head>
   <body style="overflow: hidden">
@@ -222,7 +226,6 @@
                     echo "<div class='modal fade' id='deleteCapModal$idPeliculasSeries' tabindex='-1' aria-labelledby='deleteCapModal$idPeliculasSeries' aria-hidden='true'>
                       <div class='modal-dialog'>
                         <div class='modal-content text-white' style='background-color: #212531'>
-                          <form>
                             <div class='modal-header'>
                               <h5 class='modal-title'>Eliminar Capitulos</h5>
                               <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
@@ -234,10 +237,13 @@
                                 <div class='col-12 py-4 font-weight-bold'>
                                   <div class='container'>
                                     <div class='row'>
+                                    <div class='col-2 '>
+                                      &nbsp;
+                                      </div>
                                       <div class='col-4 '>
                                         Temporada
                                       </div>
-                                      <div class='col-8 text-left'>
+                                      <div class='col-6 text-left'>
                                         Capitulo
                                       </div>
                                     </div>
@@ -262,12 +268,14 @@
                                           <div class='container'>
                                             <div class='row'>
                                               <div class='col-2'>
-                                                <input type='checkbox' name='".$idTemporadas."' value='".$idTemporadas."' />
+                                              <button class='btn btn-danger' onclick='eliminarCapitulo($idTemporadas)'>
+                                                <i class='fas fa-trash-alt'></i>
+                                              </button>
                                               </div>
-                                              <div class='col-2'>
+                                              <div class='col-4'>
                                                 ".$numeroTemporada."
                                               </div>
-                                              <div class='col-8 text-left'>
+                                              <div class='col-6 text-left'>
                                               ".$nombreCapitulo."
                                               </div>
                                             </div>
@@ -286,7 +294,6 @@
                               <button type='button' class='btn btn-dark' data-dismiss='modal'>
                                 Cerrar
                               </button>
-                              <button type='button' class='btn btn-danger'>Eliminar</button>
                             </div>
                           </form>
                         </div>
@@ -312,7 +319,9 @@
                       echo "Rellene correctamente el formulario de modificar no puede ir vacío.";
                     }else if(isset($_GET['capituloVacio'])){
                       echo "Rellene correctamente el formulario de capítulo no puede ir vacío.";
-                    }else if(isset($_GET['capituloVacio'])){
+                    }else if(isset($_GET['errorCapitulo'])){
+                      echo "Rellene correctamente el formulario de capítulo no puede ir vacío.";
+                    }else if(isset($_GET['errorProcesoEliminar'])){
                       echo "Rellene correctamente el formulario de capítulo no puede ir vacío.";
                     }else{}
                   ?>
