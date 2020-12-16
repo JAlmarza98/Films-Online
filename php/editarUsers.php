@@ -116,7 +116,40 @@
           </form>
         </div>
         <div class="col-4 facturas px-2 py-4" >
-          Hola
+        <table>
+              <thead>
+                <tr>
+                  <th>Fecha facturacion</th>
+                  <th>Fecha expiración</th>
+                  <th>Pagado con</th>
+                  <th>Dias</th>
+                </tr>
+              </thead>
+              <tbody>
+          <?php
+            $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
+            mysqli_set_charset($conexion, 'UTF8');
+            $consulta="SELECT f.fechaFacturacion,f.fechaExpiracion,f.tipo,p.tipo FROM facturacion f,precios p WHERE f.idPrecios=p.idPrecios and idUsuario='".$_COOKIE["Id"]."'";
+            $resultado=mysqli_query($conexion,$consulta);
+    
+            while($fila=mysqli_fetch_row($resultado)){
+                $fechaFacturacion=$fila[0];
+                $fechaExpiracion=$fila[1];
+                $tipo=$fila[2];
+                $duracion=$fila[3];
+                
+                echo "<tr class=''>";
+                echo "<td>".$fechaFacturacion."</td>";
+                echo "<td>".$fechaExpiracion."</td>";
+                echo "<td>".$tipo."</td>";
+                echo "<td>".$duracion." días</td>";
+                echo "<td>";
+
+            }
+            mysqli_close($conexion);
+          ?>
+            </tbody>
+            </table>
         </div>
       </div>
     </div>
