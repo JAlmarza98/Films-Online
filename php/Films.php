@@ -4,6 +4,7 @@
     <title>Films Online-Admin</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../css/dash-board.css" />
+    <link rel="stylesheet" href="../css/catalogo.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -21,6 +22,11 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="../js/jquery.min.js"></script>
+    <script>
+      function eliminar(id) {
+        window.location.href = "EliminarFilm.php?id="+id;
+      }
+    </script>
   </head>
   <body style="overflow: hidden">
 <?php
@@ -48,29 +54,126 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="">
-                  <td>1</td>
-                  <td>1917</td>
-                  <td>Drama,Guerra</td>
-                  <td>3</td>
-                  <td>0/0/0000</td>
-                  <td>
-                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#editFilmModal">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  </td>
-                  <td>
-                    <button class="btn btn-danger">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </td>
-                </tr>
+              <?php
+                $cont=0;
+                $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
+                mysqli_set_charset($conexion, 'UTF8');
+
+                $consulta="SELECT idPeliculasSeries,nombre,categoria,rating,fechaActualizacion,director,actores,año,descripcion
+                   FROM peliculasseries WHERE tipo='pelicula'";
+                $resultado=mysqli_query($conexion,$consulta);
+               
+                while($fila=mysqli_fetch_row($resultado)){
+                  $idPeliculasSeries=$fila[0];
+                  $nombre=$fila[1];
+                  $categoria=$fila[2];
+                  $rating=$fila[3];
+                  $fechaActualizacion=$fila[4];
+                  $director=$fila[5];
+                  $actores=$fila[6];
+                  $year=$fila[7];
+                  $descripcion=$fila[8];
+                  
+                    echo "<tr class=''>";
+                    echo "<td>".$idPeliculasSeries."</td>";
+                    echo "<td>".$nombre."</td>";
+                    echo "<td>".$categoria."</td>";
+                    echo "<td>".$rating."</td>";
+                    echo "<td>".$fechaActualizacion."</td>";
+                    echo "<td>";
+                    echo "<button type='button' class='btn btn-info' data-toggle='modal' data-target='#editFilmModal$idPeliculasSeries'>";
+                    echo "<i class='fas fa-edit'></i>";
+                    echo "</button>";
+                    echo "</td>";
+                    echo "<td>";
+                    echo "<button class='btn btn-danger' onclick='eliminar($idPeliculasSeries)'>";
+                    echo "<i class='fas fa-trash-alt'></i>";
+                    echo "</button>";
+                    echo "</td>";
+                    echo "</tr>";
+                    $cont++;
+
+                    //Modal para modificar una pelicula ya subida
+                    echo "<div class='modal fade' id='editFilmModal$idPeliculasSeries' tabindex='-1' aria-labelledby='editFilmModal$idPeliculasSeries' aria-hidden='true'>";
+                    echo "<div class='modal-dialog'>";
+                    echo "<div class='modal-content' style='background-color: #212531'>";
+                    echo "<div class='modal-header'>";
+                    echo "<h5 class='modal-title' id='exampleModalLabel$nombre'>Editar pelicula</h5>";
+                    echo "<button
+                              type='button'
+                              class='close'
+                              data-dismiss='modal'
+                              aria-label='Close'
+                            >";
+                    echo "<span aria-hidden='true'>&times;</span>";
+                    echo "</button>";
+                    echo "</div>";
+                    echo "<div class='modal-body'>";
+                    echo "<form action='ModificarPelicula.php' method='POST'>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Nombre</label>";
+                    echo "<input type='text' class='form-control' id='peliculaName' name='peliculaName' value='$nombre'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Categoria</label>";
+                    echo "<input type='text' class='form-control' id='peliculaCategoria' name='peliculaCategoria' value='$categoria'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Director</label>";
+                    echo "<input type='text' class='form-control' id='peliculaDirector' name='peliculaDirector' value='$director'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Reparto</label>";
+                    echo "<input type='text' class='form-control' id='peliculaReparto' name='peliculaReparto' value='$actores'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label>Año</label>";
+                    echo "<input type='text' class='form-control' id='peliculaYear' name='peliculaYear' value='$year'/>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<label for='exampleFormControlTextarea1'>Descripción</label>";
+                    echo "<textarea
+                                  class='form-control'
+                                  id='peliculaDescipcion'
+                                  name='peliculaDescipcion'
+                                  rows='5'
+                                >$descripcion</textarea>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<input type='hidden' class='form-control' id='id' name='id' value='$idPeliculasSeries'/>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "<div class='modal-footer'>";
+                    echo "<button type='button' class='btn btn-secondary' data-dismiss='modal'>
+                              Cerrar
+                            </button>";
+                    echo " <input type='submit' class='btn btn-primary' name='submit' value='Guardar'/>
+                    </form>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+                mysqli_close($conexion);
+              ?>
               </tbody>
             </table>
           </div>
-          <div class="total">Total de peliculas: <span>65</span></div>
+          <div class="total">Total de peliculas: <span><?php echo $cont; ?></span></div>
         </div>
-
+                <span id="error">
+                  <?php
+                    if(isset($_GET['duplicado'])){
+                      echo "Pelicula duplicada.";
+                    }else if(isset($_GET['vacio'])){
+                      echo "Rellene correctamente el formulario de añadir.";
+                    }else if(isset($_GET['errorProceso'])){
+                      echo "Error al eliminar la pelicula.";
+                    }else if(isset($_GET['errorModificar'])){
+                      echo "Rellene correctamente el formulario de modificar no puede ir vacío.";
+                    }else{}
+                  ?>
+                </span>
         <div class="col-12 mt-5 mb-5">
           <button
             class="btn btn-success total"
@@ -84,63 +187,6 @@
     </div>
   
 <!-- Modales -->
-<!-- Modal para modificar una pelicula ya subida -->
-<div class="modal fade" id="editFilmModal" tabindex="-1" aria-labelledby="editFilmModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="background-color: #212531">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar pelicula</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" class="form-control" id="peliculaName" />
-          </div>
-          <div class="form-group">
-            <label>Categoria</label>
-            <input type="text" class="form-control" id="peliculaCategoria" />
-          </div>
-          <div class="form-group">
-            <label>Director</label>
-            <input type="text" class="form-control" id="peliculaDirector" />
-          </div>
-          <div class="form-group">
-            <label>Reparto</label>
-            <input type="text" class="form-control" id="peliculaReparto" />
-          </div>
-          <div class="form-group">
-            <label>Año</label>
-            <input type="text" class="form-control" id="peliculaYear" />
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Descripción</label>
-            <textarea
-              class="form-control"
-              id="peliculaDescipcion"
-              rows="5"
-            ></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Cerrar
-        </button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Modal para subir una nueva pelicula -->
 <div
   class="modal fade"
@@ -163,29 +209,29 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="NuevaPelicula.php" method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label>Nombre</label>
-              <input type="text" class="form-control" id="peliculaName" />
+              <input type="text" class="form-control" id="peliculaName" name="peliculaName"/>
             </div>
             <div class="form-group col-md-4">
-              <label>Categoria</label>
-              <input type="text" class="form-control" id="peliculaCategoria" />
+              <label>Categoria/s</label>
+              <input type="text" class="form-control" id="peliculaCategoria" name="peliculaCategoria"/>
             </div>
             <div class="form-group col-md-2">
               <label>Año</label>
-              <input type="text" class="form-control" id="peliculaYear" />
+              <input type="number" class="form-control" id="peliculaYear" name="peliculaYear" min="1900" max="2099"/>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label>Director</label>
-              <input type="text" class="form-control" id="peliculaDirector" />
+              <label>Director/es</label>
+              <input type="text" class="form-control" id="peliculaDirector" name="peliculaDirector"/>
             </div>
             <div class="form-group col-md-6">
               <label>Reparto</label>
-              <input type="text" class="form-control" id="peliculaReparto" />
+              <input type="text" class="form-control" id="peliculaReparto" name="peliculaReparto"/>
             </div>
           </div>
           <div class="form-group">
@@ -193,6 +239,7 @@
             <textarea
               class="form-control"
               id="peliculaDescipcion"
+              name="peliculaDescipcion"
               rows="5"
             ></textarea>
           </div>
@@ -200,31 +247,31 @@
           <div class="form-row">
             <div class="form-file col-md-6">
               <label>Cartel</label>
-              <input type="file" id="cartel" />
+              <input type="file" id="cartel" name="cartel"/>
             </div>
             <div class="form-file col-md-6">
               <label>Imagen de Promoción</label>
-              <input type="file" id="imgPromo" />
+              <input type="file" id="imgPromo" name="imgPromo"/>
             </div>
           </div>
           <h4 class="mt-5">Archivos de video</h4>
           <div class="form-row">
             <div class="form-file col-md-6">
               <label>Trailer</label>
-              <input type="file" id="trailer" />
+              <input type="file" id="trailer" name="trailer"/>
             </div>
             <div class="form-file col-md-6">
               <label>Pelicula</label>
-              <input type="file" id="pelicula" />
+              <input type="file" id="pelicula" name="pelicula"/>
             </div>
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary">Subir Pelicula</button>
+        <input type="submit" class="btn btn-primary" name="submit" value="Subir Pelicula"/>
+        </form>
       </div>
     </div>
   </div>
