@@ -50,6 +50,7 @@
                   <th>Eliminar Capitulo</th>
                 </tr>
               </thead>
+              <tbody>
               <?php
                 $cont=0;
                 $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
@@ -69,7 +70,7 @@
                   $actores=$fila[6];
                   $year=$fila[7];
                   $descripcion=$fila[8];
-                  
+                    
                     echo "<tr class=''>";
                     echo "<td>".$idPeliculasSeries."</td>";
                     echo "<td>".$nombre."</td>";
@@ -167,13 +168,7 @@
                     echo "</div>";
                     //Modal para añadir un capitulo a una serie
                     echo "
-                    <div
-                        class='modal fade'
-                        id='uploadCapModal$idPeliculasSeries'
-                        tabindex='-1'
-                        aria-labelledby='exampleModalLabel$idPeliculasSeries'
-                        aria-hidden='true'
-                      >
+                      <div class='modal fade'id='uploadCapModal$idPeliculasSeries' tabindex='-1' aria-labelledby='exampleModalLabel$idPeliculasSeries'aria-hidden='true'>
                         <div class='modal-dialog'>
                           <div class='modal-content text-white' style='background-color: #212531'>
                             <div class='modal-header'>
@@ -215,87 +210,79 @@
                     ";
                     //Modal para eliminar capitulos de una serie
                     
-                   echo "
-                    <div
-                      class='modal fade'
-                      id='deleteCapModal$idPeliculasSeries'
-                      tabindex='-1'
-                      aria-labelledby='exampleModalLabel$idPeliculasSeries'
-                      aria-hidden='true'
-                    >
-                    <div class='modal-dialog'>
-                      <div class='modal-content text-white' style='background-color: #212531'>
-                      <div class='modal-header'>
-                          <h5 class='modal-title' id='exampleModalLabel$idPeliculasSeries'>Eliminar Capitulos</h5>
-                          <button
-                            type='button'
-                            class='close'
-                            data-dismiss='modal'
-                            aria-label='Close'
-                          >
-                            <span aria-hidden='true'>&times;</span>
-                          </button>
+                    echo "<div class='modal fade' id='deleteCapModal$idPeliculasSeries' tabindex='-1' aria-labelledby='deleteCapModal$idPeliculasSeries' aria-hidden='true'>
+                      <div class='modal-dialog'>
+                        <div class='modal-content text-white' style='background-color: #212531'>
+                          <form>
+                            <div class='modal-header'>
+                              <h5 class='modal-title'>Eliminar Capitulos</h5>
+                              <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                <span aria-hidden='true'>&times;</span>
+                              </button>
+                            </div>
+                            <div class='modal-body'>
+                              <div class='scroll'>
+                                <div class='col-12 py-4 font-weight-bold'>
+                                  <div class='container'>
+                                    <div class='row'>
+                                      <div class='col-4 '>
+                                        Temporada
+                                      </div>
+                                      <div class='col-8 text-left'>
+                                        Capitulo
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>";
+                              $result = $conexion->query("SELECT COUNT(*) as total_products FROM temporadas WHERE idPeliculasSeries=$idPeliculasSeries");
+                                $row = $result->fetch_assoc();
+                                $num_total_rows = $row['total_products'];
+            
+                                if ($num_total_rows > 0) {
+            
+                                  $consulta2="SELECT idTemporadas,numero,nombre FROM temporadas WHERE idPeliculasSeries=$idPeliculasSeries";
+                                  $resultado2=mysqli_query($conexion,$consulta2);
+                              
+                                  while($fila2=mysqli_fetch_row($resultado2)){
+                                    $idTemporadas=$fila2[0];
+                                    $numeroTemporada=$fila2[1];
+                                    $nombreCapitulo=$fila2[2];
+              
+                                    echo "
+                                        <div class='col-12 py-4'>
+                                          <div class='container'>
+                                            <div class='row'>
+                                              <div class='col-2'>
+                                                <input type='checkbox' name='".$idTemporadas."' value='".$idTemporadas."' />
+                                              </div>
+                                              <div class='col-2'>
+                                                ".$numeroTemporada."
+                                              </div>
+                                              <div class='col-8 text-left'>
+                                              ".$nombreCapitulo."
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>";
+                                  }
+                                }else{
+                                  echo "
+                                        <div class='col-12'>
+                                          No hay caputulos disponibles en este momento.
+                                        </div>";
+                                }
+                    echo"     </div>
+                            </div>
+                            <div class='modal-footer'>
+                              <button type='button' class='btn btn-dark' data-dismiss='modal'>
+                                Cerrar
+                              </button>
+                              <button type='button' class='btn btn-danger'>Eliminar</button>
+                            </div>
+                          </form>
                         </div>
-                        <div class='modal-body'>
-                          <div class='scroll'>
-                            <form>
-                              <table class='text-center'>
-                                <thead>
-                                  <tr>
-                                    <th></th>
-                                    <th>Temporada</th>
-                                    <th>Capitulo</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                    ";
-
-                    $result = $conexion->query("SELECT COUNT(*) as total_products FROM temporadas WHERE idPeliculasSeries=$idPeliculasSeries");
-                    $row = $result->fetch_assoc();
-                    $num_total_rows = $row['total_products'];
-
-                    if ($num_total_rows > 0) {
-
-                      $consulta2="SELECT idTemporadas,numero,nombre FROM temporadas WHERE idPeliculasSeries=$idPeliculasSeries";
-                      $resultado2=mysqli_query($conexion,$consulta2);
-                  
-                      while($fila2=mysqli_fetch_row($resultado2)){
-                        $idTemporadas=$fila2[0];
-                        $numeroTemporada=$fila2[0];
-                        $numeroTemporada=$fila2[1];
-  
-                        echo "<tr>
-                          <td>
-                            <input type='checkbox' name='".$idTemporadas."' value='".$idTemporadas."' />
-                          </td>
-                          <td>".$numeroTemporada."</td>
-                          <td>".$numeroTemporada."</td>
-                        </tr>
-                        ";
-                      }
-
-                    }else{
-                      echo "<tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                        ";
-                    }
-                   echo " </tbody>
-                            </table>
-                          </div>
-                        </div>
-                        <div class='modal-footer'>
-                          <button type='button' class='btn btn-dark' data-dismiss='modal'>
-                            Cerrar
-                          </button>
-                          <button type='button' class='btn btn-danger'>Eliminar</button>
-                        </div>
-                        </form>
                       </div>
-                    </div>
-                  </div>";
+                    </div>";
                 }
                 mysqli_close($conexion);
               ?>
@@ -303,7 +290,7 @@
             </table>
           </div>
           <div class="total">Total de series: <span>32</span></div>
-        </div>
+        </div>  
 
         <div class="col-12 mt-5 mb-5">
           <button
