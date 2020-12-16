@@ -32,11 +32,10 @@
                 
                 tarjetaQuitar($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
             }
-
-            mysqli_close($conexion);
         }else{
             echo "No hay peliculas y/o series añadidas a tu lista.";
         }
+        mysqli_close($conexion);
     }
 
     function mostrarMiListaGenero($genero){
@@ -73,11 +72,10 @@
                 
                 tarjetaQuitar($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
             }
-
-            mysqli_close($conexion);
         }else{
             echo "No hay peliculas y/o series añadidas a tu lista del genero $genero.";
         }
+        mysqli_close($conexion);
     }
 
     function mostrarMiListaAno($ano){
@@ -114,11 +112,10 @@
                 
                 tarjetaQuitar($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
             }
-
-            mysqli_close($conexion);
         }else{
             echo "No hay peliculas y/o series añadidas a tu lista del año $ano.";
         }
+        mysqli_close($conexion);
     }
 
     function mostrarAnos(){
@@ -171,11 +168,10 @@
                 
                 tarjetaQuitar($ruta,$nombreReemplazado,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2);
             }
-
-            mysqli_close($conexion);
         }else{
             echo "No hay peliculas y/o series añadidas a tu lista con puntuacion de $puntuacion.";
         }
+        mysqli_close($conexion);
     }
 
     function tarjetaQuitar($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2){
