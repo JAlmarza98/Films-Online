@@ -38,9 +38,12 @@ a {
   width: 700px;
   position: absolute;
   z-index: 9;
-  background-color: rgba(255, 255, 255, 0.438);
-  color: black;
+  background-color: rgba(14, 16, 24, 0.932);
+  color: white;
   bottom: 210px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding-left: 20px;
 }
 #nombre {
   color: rgb(255, 255, 255);
@@ -79,6 +82,12 @@ a {
 #footer {
   text-align: center;
   background-color: black;
+}
+
+.facturas {
+  border-radius: 50px;
+  background: #353746;
+  box-shadow: inset 20px 20px 60px #2d2f3c, inset -20px -20px 60px #3d3f51;
 }
 /*#########################################################El siguiente CSS pertenece a los carteles############################################################*/
 /*##############################################################################################################################################################*/

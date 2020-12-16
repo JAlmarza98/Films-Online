@@ -305,7 +305,7 @@
               </tbody>
             </table>
           </div>
-          <div class="total">Total de peliculas: <span><?php echo $cont; ?></span></div>
+          <div class="total">Total de series: <span><?php echo $cont; ?></span></div>
         </div>
                 <span id="error">
                   <?php

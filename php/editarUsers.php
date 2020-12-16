@@ -46,71 +46,77 @@
         }
         mysqli_close($conexion);
     ?>
-    <form action="ModificarUsuario.php" method="POST">
+    
     <div class="container" >
       <div class="row" >
-        <div class="col-10 offset-1 mt-5 mb-5" >
-          <div class="user-icon text-center" >
-            <i class="far fa-user-circle fa-10x"></i>
+        <div class="col-8">
+          <form action="ModificarUsuario.php" method="POST">
+            <div class="col-10 offset-1 mt-5 mb-5" >
+              <div class="user-icon text-center" >
+                <i class="far fa-user-circle fa-10x"></i>
+              </div>
+            </div>
+            <div class="col-10 offset-1 mt-5">
+                <div class="form-group">
+                  <label for="AddName">Nombre</label>
+                  <input type="text" class="form-control" id="AddName" name="AddName" placeholder="Introduce tu nombre" value="<?php echo $nombreUsuaurio ?>">
+                  <span id="errorAddName">
+                    <?php if(isset($_GET['Name'])){
+                      echo "El nombre no puede ser vacío.";
+                    }else if(isset($_GET['NameError'])){
+                      echo "El nombre solo puede contener letras y espacios.";
+                    }else{}
+                    ?>
+                  </span>
+                </div>
+                <div class="form-group">
+                  <label for="AddLastName">Apellido</label>
+                  <input type="text" class="form-control" id="AddLastName" name="AddLastName" placeholder="Introduce tu Apellido" value="<?php echo $apellidoUsuario ?>">
+                  <span id="errorAddLastName">
+                    <?php if(isset($_GET['LastName'])){
+                        echo "El apellido no puede ser vacío.";
+                    }else if(isset($_GET['LastNameError'])){
+                      echo "El apellido solo puede contener letras y espacios.";
+                    }else{}
+                    ?>
+                  </span>
+                </div>
+                <div class="form-group">
+                  <label for="AddDirection">Dirección</label>
+                  <input type="text" class="form-control" id="AddDirection" name="AddDirection" placeholder="Introduce tu direccion (no es obligatorio)" value="<?php echo $direccion ?>">
+                </div>
+                <div class="form-group">
+                  <label for="AddTelf">Teléfono</label>
+                  <input type="tel" class="form-control" id="AddTelf" name="AddTelf" placeholder="Introduce tu nº de telefono(no es obligatorio)" value="<?php echo $telefono ?>">
+                  <span id="errorAddTelf">
+                    <?php if(isset($_GET['TelfError'])){
+                        echo "El Teléfono no es valido.";
+                    }
+                    ?>
+                  </span>
+                </div>
+                <div class="form-group">
+                  <label for="AddPassword">Contraseña nueva</label>
+                  <input type="password" class="form-control" id="AddPassword" name="AddPassword" placeholder="Introduce tu nueva contraseña">
+                  <span id="errorAddPassword">
+                    <?php if(isset($_GET['PasswordError'])){
+                        echo "La clave debe tener al menos 8 caracteres, no más de 15 caracteres, una letra minúscula, una letra mayúscula y un caracter numérico y un caracter especial.";
+                    }
+                    ?>
+                  </span>
+                </div>
+              </form>
+            </div>
+            <div class="col-10 offset-1 text-center mb-5">
+            <div type="button" class="btn btn-outline-info mr-3" onclick="window.location.href='../php/Catalogo.php'">
+              Cancelar
+            </div >
+            <input type="submit" class="btn btn-outline-info mr-3" name="submit" value="Guardar Cambios"/>
           </div>
-        </div>
-        <div class="col-10 offset-1 mt-5">
-            <div class="form-group">
-              <label for="AddName">Nombre</label>
-              <input type="text" class="form-control" id="AddName" name="AddName" placeholder="Introduce tu nombre" value="<?php echo $nombreUsuaurio ?>">
-              <span id="errorAddName">
-                <?php if(isset($_GET['Name'])){
-                  echo "El nombre no puede ser vacío.";
-                }else if(isset($_GET['NameError'])){
-                  echo "El nombre solo puede contener letras y espacios.";
-                }else{}
-                ?>
-              </span>
-            </div>
-            <div class="form-group">
-              <label for="AddLastName">Apellido</label>
-              <input type="text" class="form-control" id="AddLastName" name="AddLastName" placeholder="Introduce tu Apellido" value="<?php echo $apellidoUsuario ?>">
-              <span id="errorAddLastName">
-                <?php if(isset($_GET['LastName'])){
-                    echo "El apellido no puede ser vacío.";
-                }else if(isset($_GET['LastNameError'])){
-                  echo "El apellido solo puede contener letras y espacios.";
-                }else{}
-                ?>
-              </span>
-            </div>
-            <div class="form-group">
-              <label for="AddDirection">Dirección</label>
-              <input type="text" class="form-control" id="AddDirection" name="AddDirection" placeholder="Introduce tu direccion (no es obligatorio)" value="<?php echo $direccion ?>">
-            </div>
-            <div class="form-group">
-              <label for="AddTelf">Teléfono</label>
-              <input type="tel" class="form-control" id="AddTelf" name="AddTelf" placeholder="Introduce tu nº de telefono(no es obligatorio)" value="<?php echo $telefono ?>">
-              <span id="errorAddTelf">
-                <?php if(isset($_GET['TelfError'])){
-                    echo "El Teléfono no es valido.";
-                }
-                ?>
-              </span>
-            </div>
-            <div class="form-group">
-              <label for="AddPassword">Contraseña nueva</label>
-              <input type="password" class="form-control" id="AddPassword" name="AddPassword" placeholder="Introduce tu nueva contraseña">
-              <span id="errorAddPassword">
-                <?php if(isset($_GET['PasswordError'])){
-                     echo "La clave debe tener al menos 8 caracteres, no más de 15 caracteres, una letra minúscula, una letra mayúscula y un caracter numérico y un caracter especial.";
-                }
-                ?>
-              </span>
-            </div>
           </form>
         </div>
-        <div class="col-10 offset-1 text-center mb-5">
-          <div type="button" class="btn btn-outline-info mr-3" onclick="window.location.href='../php/Catalogo.php'">
-            Cancelar
-          </div >
-          <input type="submit" class="btn btn-outline-info mr-3" name="submit" value="Guardar Cambios"/>
-      </form>
+        <div class="col-4 facturas px-2 py-4" >
+          Hola
         </div>
       </div>
     </div>
