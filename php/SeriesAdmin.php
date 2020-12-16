@@ -22,6 +22,11 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="../js/jquery.min.js"></script>
+    <script>
+      function eliminar(id) {
+        window.location.href = "EliminarSerie.php?id="+id;
+      }
+    </script>
   </head>
   <body style="overflow: hidden">
 <?php
@@ -122,33 +127,33 @@
                     echo "</button>";
                     echo "</div>";
                     echo "<div class='modal-body'>";
-                    echo "<form action='ModificarPelicula.php' method='POST'>";
+                    echo "<form action='ModificarSerie.php' method='POST'>";
                     echo "<div class='form-group'>";
                     echo "<label>Nombre</label>";
-                    echo "<input type='text' class='form-control' id='peliculaName' name='peliculaName' value='$nombre'/>";
+                    echo "<input type='text' class='form-control' id='serieName' name='serieName' value='$nombre'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label>Categoria</label>";
-                    echo "<input type='text' class='form-control' id='peliculaCategoria' name='peliculaCategoria' value='$categoria'/>";
+                    echo "<input type='text' class='form-control' id='serieCategoria' name='serieCategoria' value='$categoria'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label>Director</label>";
-                    echo "<input type='text' class='form-control' id='peliculaDirector' name='peliculaDirector' value='$director'/>";
+                    echo "<input type='text' class='form-control' id='serieDirector' name='serieDirector' value='$director'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label>Reparto</label>";
-                    echo "<input type='text' class='form-control' id='peliculaReparto' name='peliculaReparto' value='$actores'/>";
+                    echo "<input type='text' class='form-control' id='serieReparto' name='serieReparto' value='$actores'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label>Año</label>";
-                    echo "<input type='text' class='form-control' id='peliculaYear' name='peliculaYear' value='$year'/>";
+                    echo "<input type='text' class='form-control' id='serieYear' name='serieYear' value='$year'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label for='exampleFormControlTextarea1'>Descripción</label>";
                     echo "<textarea
                                   class='form-control'
-                                  id='peliculaDescipcion'
-                                  name='peliculaDescipcion'
+                                  id='serieDescipcion'
+                                  name='serieDescipcion'
                                   rows='5'
                                 >$descripcion</textarea>";
                     echo "</div>";
@@ -183,27 +188,31 @@
                               </button>
                             </div>
                             <div class='modal-body'>
-                              <form>
+                              <form action='NuevoCapitulo.php' method='POST' enctype='multipart/form-data'>
                                 <div class='form-group'>
                                   <label>Nombre</label>
-                                  <input type='text' class='form-control' id='capNombre' />
+                                  <input type='text' class='form-control' id='capNombre' name='capNombre'/>
                                 </div>
                                 <div class='form-group'>
-                                  <label>Numero</label>
-                                  <input type='text' class='form-control' id='capNumero' />
+                                  <label>Temporada</label>
+                                  <input type='text' class='form-control' id='capNumero' name='capNumero'/>
+                                </div>
+                                <div class='form-group'>
+                                <input type='hidden' class='form-control' id='id' name='id' value='$idPeliculasSeries'/>
+                                <input type='hidden' class='form-control' id='nombreSerie' name='nombreSerie' value='$nombre'/>
                                 </div>
                                 <div class='form-file'>
                                   <label>Capitulo</label>
-                                  <input type='file' id='capitulo' />
+                                  <input type='file' id='capitulo' name='capitulo' name='capitulo'/>
                                 </div>
-                              </form>
                             </div>
                             <div class='modal-footer'>
                               <button type='button' class='btn btn-secondary' data-dismiss='modal'>
                                 Cerrar
                               </button>
-                              <button type='button' class='btn btn-primary'>Guardar</button>
+                              <input type='submit' name='submit' class='btn btn-primary' value='Guardar'/>
                             </div>
+                            </form>
                           </div>
                         </div>
                       </div>
@@ -289,9 +298,25 @@
               </tbody>
             </table>
           </div>
-          <div class="total">Total de series: <span>32</span></div>
-        </div>  
-
+          <div class="total">Total de peliculas: <span><?php echo $cont; ?></span></div>
+        </div>
+                <span id="error">
+                  <?php
+                    if(isset($_GET['duplicado'])){
+                      echo "Serie duplicada.";
+                    }else if(isset($_GET['vacio'])){
+                      echo "Rellene correctamente el formulario de añadir.";
+                    }else if(isset($_GET['errorProceso'])){
+                      echo "Error al eliminar la serie.";
+                    }else if(isset($_GET['errorModificar'])){
+                      echo "Rellene correctamente el formulario de modificar no puede ir vacío.";
+                    }else if(isset($_GET['capituloVacio'])){
+                      echo "Rellene correctamente el formulario de capítulo no puede ir vacío.";
+                    }else if(isset($_GET['capituloVacio'])){
+                      echo "Rellene correctamente el formulario de capítulo no puede ir vacío.";
+                    }else{}
+                  ?>
+                </span>
         <div class="col-12 mt-5 mb-5">
           <button
             class="btn btn-success total"
@@ -328,36 +353,37 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="NuevaSerie.php" method="POST" enctype="multipart/form-data">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label>Nombre</label>
-              <input type="text" class="form-control" id="peliculaName" />
+              <input type="text" class="form-control" id="serieName" name="serieName"/>
             </div>
             <div class="form-group col-md-4">
               <label>Categoria</label>
-              <input type="text" class="form-control" id="peliculaCategoria" />
+              <input type="text" class="form-control" id="serieCategoria" name="serieCategoria"/>
             </div>
             <div class="form-group col-md-2">
               <label>Año</label>
-              <input type="text" class="form-control" id="peliculaYear" />
+              <input type="text" class="form-control" id="serieYear" name="serieYear"/>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label>Director</label>
-              <input type="text" class="form-control" id="peliculaDirector" />
+              <input type="text" class="form-control" id="serieDirector" name="serieDirector"/>
             </div>
             <div class="form-group col-md-6">
               <label>Reparto</label>
-              <input type="text" class="form-control" id="peliculaReparto" />
+              <input type="text" class="form-control" id="serieReparto" name="serieReparto"/>
             </div>
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripción</label>
             <textarea
               class="form-control"
-              id="peliculaDescipcion"
+              id="serieDescipcion"
+              name="serieDescipcion"
               rows="5"
             ></textarea>
           </div>
@@ -365,26 +391,26 @@
           <div class="form-row">
             <div class="form-file col-md-6">
               <label>Cartel</label>
-              <input type="file" id="cartel" />
+              <input type="file" id="cartel" name="cartel"/>
             </div>
             <div class="form-file col-md-6">
               <label>Imagen de Promoción</label>
-              <input type="file" id="imgPromo" />
+              <input type="file" id="imgPromo" name="imgPromo"/>
             </div>
           </div>
           <h4 class="mt-5">Archivos de video</h4>
           <div class="form-file">
             <label>Trailer</label>
-            <input type="file" id="trailer" />
+            <input type="file" id="trailer" name="trailer"/>
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Cerrar
         </button>
-        <button type="button" class="btn btn-primary">Subir Serie</button>
+        <input type="submit" class="btn btn-primary" name="submit" value="Subir Serie"/>
       </div>
+      </form>
     </div>
   </div>
 </div>

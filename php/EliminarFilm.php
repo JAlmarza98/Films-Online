@@ -1,7 +1,7 @@
 <?php
 $id=$_GET['id'];
 if($id==""){
-    header("Location: Users.php?errorProceso=si"); 
+    header("Location: Films.php?errorProceso=si"); 
 }
 $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
 mysqli_set_charset($conexion, 'UTF8');
@@ -40,7 +40,7 @@ if ($num_total_rows > 0) {
 
     $consulta3="DELETE FROM peliculasseries WHERE idPeliculasSeries=$id";
     if (mysqli_query($conexion, $consulta3)) {
-        echo "pelicula eliminada";
+        echo "Pelicula eliminada";
         header("Location: Films.php");
     } else {
         echo "Error: " . $consulta3 . "<br>" . mysqli_error($conexion);

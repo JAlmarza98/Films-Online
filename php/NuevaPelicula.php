@@ -81,9 +81,6 @@
                 $targetFile =  str_replace('//','/',$targetPath);
                 $targetPath2 = $_SERVER['DOCUMENT_ROOT']."/Films-Online/video/peliculas/".$nombreCambiado;
                 $targetFile2 =  str_replace('//','/',$targetPath2);
-                echo $targetFile."<br>";
-                print_r($_FILES['cartel']);
-
 
                 if(move_uploaded_file($_FILES['cartel']['tmp_name'],$targetFile."/".$_FILES['cartel']['name'])){
                     echo "Subida completada. ";
