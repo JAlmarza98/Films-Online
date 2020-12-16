@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/5c4ea47aab.js" crossorigin="anonymous"></script>
     <script src="../js/cookie.js"></script>
 </head>
-<body>
+<body style="background-color:  #353746;">
     <?php
         include 'MostrarCatalogo.php';
         include 'header.php';
