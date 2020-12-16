@@ -86,27 +86,27 @@
 
 
                 if(move_uploaded_file($_FILES['cartel']['tmp_name'],$targetFile."/".$_FILES['cartel']['name'])){
-                    echo "Uploaded successfully!";
+                    echo "Subida completada. ";
                 }else{
-                    echo "Upload failed!";
+                    echo "Subida incompleta. ";
                 }
 
                 if(move_uploaded_file($_FILES['imgPromo']['tmp_name'],$targetFile."/".$_FILES['imgPromo']['name'])){
-                    echo "Uploaded successfully!";
+                    echo "Subida completada. ";
                 }else{
-                    echo "Upload failed!";
+                    echo "Subida incompleta. ";
                 }
 
                 if(move_uploaded_file($_FILES['trailer']['tmp_name'],$targetFile2."/".$_FILES['trailer']['name'])){
-                    echo "Uploaded successfully!";
+                    echo "Subida completada. ";
                 }else{
-                    echo "Upload failed!";
+                    echo "Subida incompleta. ";
                 }
 
                 if(move_uploaded_file($_FILES['pelicula']['tmp_name'],$targetFile2."/".$_FILES['pelicula']['name'])){
-                    echo "Uploaded successfully!";
+                    echo "Subida completada. ";
                 }else{
-                    echo "Upload failed!";
+                    echo "Subida incompleta. ";
                 }
 
                 $conexion=mysqli_connect('localhost', 'root', '', 'films_online');

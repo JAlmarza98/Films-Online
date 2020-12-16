@@ -109,34 +109,38 @@
                     echo "</button>";
                     echo "</div>";
                     echo "<div class='modal-body'>";
-                    echo "<form action='ModificarPelicula.php'>";
+                    echo "<form action='ModificarPelicula.php' method='POST'>";
                     echo "<div class='form-group'>";
                     echo "<label>Nombre</label>";
-                    echo "<input type='text' class='form-control' id='peliculaName' value='$nombre'/>";
+                    echo "<input type='text' class='form-control' id='peliculaName' name='peliculaName' value='$nombre'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label>Categoria</label>";
-                    echo "<input type='text' class='form-control' id='peliculaCategoria' value='$categoria'/>";
+                    echo "<input type='text' class='form-control' id='peliculaCategoria' name='peliculaCategoria' value='$categoria'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label>Director</label>";
-                    echo "<input type='text' class='form-control' id='peliculaDirector' value='$director'/>";
+                    echo "<input type='text' class='form-control' id='peliculaDirector' name='peliculaDirector' value='$director'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label>Reparto</label>";
-                    echo "<input type='text' class='form-control' id='peliculaReparto' value='$actores'/>";
+                    echo "<input type='text' class='form-control' id='peliculaReparto' name='peliculaReparto' value='$actores'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label>Año</label>";
-                    echo "<input type='text' class='form-control' id='peliculaYear' value='$year'/>";
+                    echo "<input type='text' class='form-control' id='peliculaYear' name='peliculaYear' value='$year'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
                     echo "<label for='exampleFormControlTextarea1'>Descripción</label>";
                     echo "<textarea
                                   class='form-control'
                                   id='peliculaDescipcion'
+                                  name='peliculaDescipcion'
                                   rows='5'
                                 >$descripcion</textarea>";
+                    echo "</div>";
+                    echo "<div class='form-group'>";
+                    echo "<input type='hidden' class='form-control' id='id' name='id' value='$idPeliculasSeries'/>";
                     echo "</div>";
                     echo "</div>";
                     echo "<div class='modal-footer'>";
@@ -164,10 +168,12 @@
                     }else if(isset($_GET['vacio'])){
                       echo "Rellene correctamente el formulario de añadir.";
                     }else if(isset($_GET['errorProceso'])){
-                      echo "Erroe al eliminar la pelicula.";
-                    }
+                      echo "Error al eliminar la pelicula.";
+                    }else if(isset($_GET['errorModificar'])){
+                      echo "Rellene correctamente el formulario de modificar no puede ir vacío.";
+                    }else{}
                   ?>
-                <span>
+                </span>
         <div class="col-12 mt-5 mb-5">
           <button
             class="btn btn-success total"
