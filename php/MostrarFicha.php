@@ -90,21 +90,24 @@
                         </div>
                     </div>
                     <div class="row text-center">
-                        <div class="col-4">
+                        <div class="col-3">
                             <button class="btn btn-outline-info mt-5" data-toggle="modal" data-target='#ModalTrailer'>
                                 Tráiler
                             </button>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <button class="btn btn-primary mt-5" data-toggle="modal" data-target='#ModalPelicula'>
                                 Pelicula
                             </button>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <button class="btn btn-outline-success mt-5" data-toggle="modal" data-target='#ModalVoto'>
                             <i class="fas fa-vote-yea"></i>
                                 Puntúa
                             </button>
+                        </div>
+                        <div class="col-3">
+                            <?php echo "<a class='btn btn-outline-warning mt-5' href='AnadirLista.php?anadir=$titulo' title='Añadir a tu lista.'><i class='fas fa-folder-plus'></i></a>" ?>
                         </div>
                     </div>
                 </div>
@@ -244,16 +247,19 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col-6">
+                    <div class="col-4">
                         <button class="btn btn-outline-success mt-5" data-toggle="modal" data-target='#ModalVoto'>
                         <i class="fas fa-vote-yea"></i>
                             Puntúa
                         </button>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <button class="btn btn-outline-info mt-5" data-toggle="modal" data-target='#ModalTrailer'>
                             Tráiler
                         </button>
+                    </div>
+                    <div class="col-4">
+                        <?php echo "<a class='btn btn-outline-warning mt-5' href='AnadirLista.php?anadir=$titulo' title='Añadir a tu lista.'><i class='fas fa-folder-plus'></i></a>" ?>
                     </div>
                 </div>
                 <div class="row">
