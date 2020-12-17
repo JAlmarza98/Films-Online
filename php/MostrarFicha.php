@@ -27,7 +27,7 @@
             <div class="row animate__animated animate__fadeIn" *ngIf="movie">
                 <div class="col-md-6">
                     <?php
-                        echo "<img src='../$rutaImg' class='img-thumbnail'/>";
+                        echo "<img src='../$rutaImg' class='img-thumbnail' width='480px' height='700px'/>";
                     ?>
                 </div>
                 <div class="col-md-6 text-white font-size-40">

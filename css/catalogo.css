@@ -261,6 +261,9 @@ a {
     top: 310px;
     height: fit-content;
   }
+  .carteles::-webkit-scrollbar {
+    display: block;
+  }
 }
 @media (min-width: 1200px) and (max-width: 1420px) {
   .cuerpo {

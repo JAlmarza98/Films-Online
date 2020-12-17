@@ -6,6 +6,7 @@
     <META NAME="Revisit-after" CONTENT="1 days">
     <META NAME="robots" content="ALL">
     <META charset="utf-8">
+    <link rel="icon" type="image/png" href="../../favicon.png"/>
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/catalogo.css" />
     <link rel="stylesheet" href="../css/pelisSeries.css" />

@@ -127,9 +127,9 @@
     function tarjeta($ruta,$nombre,$titulo,$categoria,$ano,$rating,$director,$actores,$descripcion,$tipo,$ruta2){
         $rutaPlay="../img/web/play.png";
         ?>
-        <div type="button" class="item" data-toggle="modal" data-target="<?php echo "#exampleModal$nombre"; ?>">
+        <div type="button" class="item mb-3" data-toggle="modal" data-target="<?php echo "#exampleModal$nombre"; ?>">
         <?php
-            echo "<img src=\"..$ruta\" width='160px'>";
+            echo "<img style='border-radius:8px' src=\"..$ruta\" width='160px' height='230px'>";
         ?>
         </div>
             <div class="modal fade" id="<?php echo "exampleModal$nombre"; ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo "exampleModal$nombre"; ?>" aria-hidden="true">
@@ -138,7 +138,16 @@
                         <div class="modal-body">
                             <div>
                                 <?php
-                                echo "<img id='reproducir' src=\"..$ruta2\" width='125%'>";
+                                    $conexion=mysqli_connect('localhost', 'root', '', 'films_online');
+                                    mysqli_set_charset($conexion, 'UTF8');
+                                    $consulta="SELECT rutaImgPromo FROM peliculasseries WHERE nombre ='".$titulo."'";
+                                    $resultado=mysqli_query($conexion,$consulta);
+
+                                    while($fila=mysqli_fetch_row($resultado)){
+                                        $promo=$fila[0];
+                                    }
+                                    mysqli_close($conexion);
+                                echo "<img id='reproducir' src=\"..$promo\" width='125%'>";
                                 if($tipo=='pelicula'){
                                      echo "<a href='Ficha.php?pelicula=$nombre'><img id='play' src=\"$rutaPlay\"></a>";
                                 }else{

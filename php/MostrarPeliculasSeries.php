@@ -44,7 +44,7 @@
             $result = $conexion->query(
                 'SELECT idPeliculasSeries,rutaImg,nombre,categoria,año,rating,director,actores,descripcion,tipo,rutaImgPromo
                 FROM peliculasseries 
-                WHERE tipo="'.$tipo.'" order by fechaActualizacion LIMIT '.$start.', '.$NUM_ITEMS_BY_PAGE
+                WHERE tipo="'.$tipo.'" order by fechaActualizacion DESC LIMIT '.$start.', '.$NUM_ITEMS_BY_PAGE
             );
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()){
