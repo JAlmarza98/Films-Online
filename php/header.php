@@ -64,7 +64,7 @@
             <a class="dropdown-item" href="../php/EditarUsers.php"
               >Editar perfil</a
             >
-            <a class="dropdown-item" href="Cerrar.php">Cerrar sesion</a>
+            <a class="dropdown-item" href="Cerrar.php">Cerrar sesión</a>
             <?php
               $nivel=$_COOKIE["Nivel"];
               if($nivel === "0"){

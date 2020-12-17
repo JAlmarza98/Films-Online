@@ -26,7 +26,7 @@
         $tipo="pelicula";
     ?>
     <div class="mt-5 mb-5">
-        <p class="ml-5">TOP 10 Peliculas</p>
+        <p class="ml-5 font-weight-bold">TOP 10 Peliculas</p>
         <div class="carteles">
             <div class='margen item'></div>
             <?php

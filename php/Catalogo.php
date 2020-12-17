@@ -29,7 +29,7 @@
     
     <div class="cuerpo">
         <div class="mt-5 marg-min">
-            <p class="ml-5">TOP 10 Peliculas</p>
+            <p class="ml-5 font-weight-bold">TOP 10 Peliculas</p>
             <div class="carteles">
             <div class='margen item'></div>
                 <?php
@@ -39,7 +39,7 @@
         </div>
 
         <div class="mt-5">
-            <p class="ml-5">TOP 10 Series</p>
+            <p class="ml-5 font-weight-bold">TOP 10 Series</p>
             <div class="carteles">
             <div class='margen item'></div>
                 <?php
@@ -47,8 +47,8 @@
                 ?>
             </div>
         </div>
-        <div class="mt-5 mb-5">
-            <p class="ml-5">Ultimas añadidas</p>
+        <div class="mt-5 mb-5 font-weight-bold">
+            <p class="ml-5">Últimas añadidas</p>
             <div class="carteles">
             <div class='margen item'></div>
                 <?php

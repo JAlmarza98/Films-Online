@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-sm-5 col-lg-2 col-3"></div>
                 <div class="col-lg-2 col-sm-3 col-5">
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#sesion-start" id="inicio">Inicia Sesion</button>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#sesion-start" id="inicio">Inicia Sesión</button>
                     <div id="sesion-start" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -58,7 +58,7 @@
                 <div class="col-lg-3 col-sm-8 col-10" style="text-shadow: 0px 0px 5px #000000;">
                     <p>Tu cine...</p>
                     <p id="indent">...tus normas</p><br>
-                    <p> Con Films online disfruta de las mejores series y peliculas donde, cuando y como tu quieras. Sin interrumciones y siempre con la mejor calidad.</p>
+                    <p> Con Films online disfruta de las mejores series y peliculas donde, cuando y como tu quieras. Sin interrupciones y siempre con la mejor calidad.</p>
                     <p>Olvidate por fin de buscar links, todo lo que quieres ver, en el mismo sitio y sin pagos extras.</p>
                 </div>
                 <div class="col-lg-2 col-sm-2 col-1"></div>

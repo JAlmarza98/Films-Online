@@ -38,7 +38,7 @@ a {
   width: 700px;
   position: absolute;
   z-index: 9;
-  background-color: rgba(14, 16, 24, 0.932);
+  background-color: rgba(14, 16, 24, 0.75);
   color: white;
   bottom: 210px;
   border-top-left-radius: 20px;
@@ -85,9 +85,27 @@ a {
 }
 
 .facturas {
+  height: 300px;
+  padding-top: 50px;
+  padding-bottom: 0px;
   border-radius: 50px;
   background: #353746;
   box-shadow: inset 20px 20px 60px #2d2f3c, inset -20px -20px 60px #3d3f51;
+}
+.scroll {
+  height: 200px;
+  overflow: auto;
+}
+.scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(66, 67, 78);
+  border-radius: 10px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background: rgb(134, 133, 133);
+  border-radius: 10px;
 }
 /*#########################################################El siguiente CSS pertenece a los carteles############################################################*/
 /*##############################################################################################################################################################*/

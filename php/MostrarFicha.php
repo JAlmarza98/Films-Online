@@ -92,7 +92,7 @@
                     <div class="row text-center">
                         <div class="col-4">
                             <button class="btn btn-outline-info mt-5" data-toggle="modal" data-target='#ModalTrailer'>
-                                Trailer
+                                Tráiler
                             </button>
                         </div>
                         <div class="col-4">
@@ -103,7 +103,7 @@
                         <div class="col-4">
                             <button class="btn btn-outline-success mt-5" data-toggle="modal" data-target='#ModalVoto'>
                             <i class="fas fa-vote-yea"></i>
-                                Puntua
+                                Puntúa
                             </button>
                         </div>
                     </div>
@@ -247,12 +247,12 @@
                     <div class="col-6">
                         <button class="btn btn-outline-success mt-5" data-toggle="modal" data-target='#ModalVoto'>
                         <i class="fas fa-vote-yea"></i>
-                            Puntua
+                            Puntúa
                         </button>
                     </div>
                     <div class="col-6">
                         <button class="btn btn-outline-info mt-5" data-toggle="modal" data-target='#ModalTrailer'>
-                            Trailer
+                            Tráiler
                         </button>
                     </div>
                 </div>
@@ -295,7 +295,7 @@
                                                 <div class="cap">
                                                 <?php echo $nombre ?>
                                                     <button class="btn btn-primary" data-toggle="modal" <?php echo "data-target='#".$nombreCambiado."'";?>>
-                                                        Ver Capitulo
+                                                        Ver Capítulo
                                                     </button>
                                                 </div>
                                                 <div class="modal fade" <?php echo "id='".$nombreCambiado."'aria-labelledby='".$nombreCambiado."'";?> tabindex="-1" role="dialog" >
@@ -321,7 +321,7 @@
                                     echo "</div>";
                                 }
                             }else{
-                                echo "No hay capitulos en esta serie";
+                                echo "No hay capítulos en esta serie";
                             }
                             
                             mysqli_close($conexion);
@@ -337,7 +337,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content" style="background-color:black;">
                         <video id='trailer' width='100%' poster='<?php echo "../".$rutaPromo?>' controls>
-                            <source src='<?php echo "../".$rutaTrailer?>' type='video/mp4'>
+                            <source src='<?php echo "..".$rutaTrailer?>' type='video/mp4'>
                             Your browser does not support the video tag.
                         </video>
                     </div>

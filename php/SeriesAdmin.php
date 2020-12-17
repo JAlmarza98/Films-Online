@@ -50,13 +50,13 @@
                 <tr>
                   <th>ID</th>
                   <th>Nombre</th>
-                  <th>Categoria</th>
+                  <th>Categoría</th>
                   <th>Puntuación</th>
-                  <th>Actualizacion</th>
+                  <th>Actualización</th>
                   <th>Editar</th>
                   <th>Eliminar Serie</th>
-                  <th>Añadir Capitulo</th>
-                  <th>Eliminar Capitulo</th>
+                  <th>Añadir Capítulo</th>
+                  <th>Eliminar Capítulo</th>
                 </tr>
               </thead>
               <tbody>
@@ -137,7 +137,7 @@
                     echo "<input type='text' class='form-control' id='serieName' name='serieName' value='$nombre'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
-                    echo "<label>Categoria</label>";
+                    echo "<label>Categoría</label>";
                     echo "<input type='text' class='form-control' id='serieCategoria' name='serieCategoria' value='$categoria'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
@@ -181,7 +181,7 @@
                         <div class='modal-dialog'>
                           <div class='modal-content text-white' style='background-color: #212531'>
                             <div class='modal-header'>
-                              <h5 class='modal-title' id='exampleModalLabel$idPeliculasSeries'>Añadir un capitulo</h5>
+                              <h5 class='modal-title' id='exampleModalLabel$idPeliculasSeries'>Añadir un capítulo</h5>
                               <button
                                 type='button'
                                 class='close'
@@ -199,14 +199,14 @@
                                 </div>
                                 <div class='form-group'>
                                   <label>Temporada</label>
-                                  <input type='text' class='form-control' id='capNumero' name='capNumero'/>
+                                  <input type='number' min='1' max='30' class='form-control' id='capNumero' name='capNumero'/>
                                 </div>
                                 <div class='form-group'>
                                 <input type='hidden' class='form-control' id='id' name='id' value='$idPeliculasSeries'/>
                                 <input type='hidden' class='form-control' id='nombreSerie' name='nombreSerie' value='$nombre'/>
                                 </div>
                                 <div class='form-file'>
-                                  <label>Capitulo</label>
+                                  <label>Capítulo</label>
                                   <input type='file' id='capitulo' name='capitulo' name='capitulo'/>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@
                       <div class='modal-dialog'>
                         <div class='modal-content text-white' style='background-color: #212531'>
                             <div class='modal-header'>
-                              <h5 class='modal-title'>Eliminar Capitulos</h5>
+                              <h5 class='modal-title'>Eliminar Capítulos</h5>
                               <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                                 <span aria-hidden='true'>&times;</span>
                               </button>
@@ -244,7 +244,7 @@
                                         Temporada
                                       </div>
                                       <div class='col-6 text-left'>
-                                        Capitulo
+                                        Capítulo
                                       </div>
                                     </div>
                                   </div>
@@ -285,7 +285,7 @@
                                 }else{
                                   echo "
                                         <div class='col-12'>
-                                          No hay caputulos disponibles en este momento.
+                                          No hay capítulos disponibles en este momento.
                                         </div>";
                                 }
                     echo"     </div>
@@ -316,13 +316,13 @@
                     }else if(isset($_GET['errorProceso'])){
                       echo "Error al eliminar la serie.";
                     }else if(isset($_GET['errorModificar'])){
-                      echo "Rellene correctamente el formulario de modificar no puede ir vacío.";
+                      echo "Rellene correctamente el formulario de modificar, no puede estar vacío.";
                     }else if(isset($_GET['capituloVacio'])){
-                      echo "Rellene correctamente el formulario de capítulo no puede ir vacío.";
+                      echo "Rellene correctamente el formulario de capítulo, no puede estar vacío.";
                     }else if(isset($_GET['errorCapitulo'])){
-                      echo "Rellene correctamente el formulario de capítulo no puede ir vacío.";
+                      echo "Rellene correctamente el formulario de capítulo, no puede estar vacío.";
                     }else if(isset($_GET['errorProcesoEliminar'])){
-                      echo "Rellene correctamente el formulario de capítulo no puede ir vacío.";
+                      echo "Rellene correctamente el formulario de capítulo, no puede estar vacío.";
                     }else{}
                   ?>
                 </span>
@@ -340,7 +340,7 @@
   </div>
 </div>
 <!-- Modales -->
-<!-- Modal para subir una nueva pelicula -->
+<!-- Modal para subir una nueva serie -->
 <div
   class="modal fade"
   id="newFilm"
@@ -369,7 +369,7 @@
               <input type="text" class="form-control" id="serieName" name="serieName"/>
             </div>
             <div class="form-group col-md-4">
-              <label>Categoria</label>
+              <label>Categoría</label>
               <input type="text" class="form-control" id="serieCategoria" name="serieCategoria"/>
             </div>
             <div class="form-group col-md-2">
@@ -409,7 +409,7 @@
           </div>
           <h4 class="mt-5">Archivos de video</h4>
           <div class="form-file">
-            <label>Trailer</label>
+            <label>Tráiler</label>
             <input type="file" id="trailer" name="trailer"/>
           </div>
       </div>

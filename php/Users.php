@@ -32,7 +32,7 @@
       <div class="row mb-5">
         <div class="col-10 offset-1 users mt-5 mb-5">
           <div class="table-top">
-            <h4>Total suscripciones:</h4>
+            <h4>Todas las suscripciones:</h4>
           </div>
 
           <div class="tabla-users">

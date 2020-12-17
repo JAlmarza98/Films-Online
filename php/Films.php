@@ -46,9 +46,9 @@
                 <tr>
                   <th>ID</th>
                   <th>Nombre</th>
-                  <th>Categoria</th>
+                  <th>Categoría</th>
                   <th>Puntuación</th>
-                  <th>Actualizacion</th>
+                  <th>Actualización</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
@@ -115,7 +115,7 @@
                     echo "<input type='text' class='form-control' id='peliculaName' name='peliculaName' value='$nombre'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
-                    echo "<label>Categoria</label>";
+                    echo "<label>Categoría</label>";
                     echo "<input type='text' class='form-control' id='peliculaCategoria' name='peliculaCategoria' value='$categoria'/>";
                     echo "</div>";
                     echo "<div class='form-group'>";
@@ -170,7 +170,7 @@
                     }else if(isset($_GET['errorProceso'])){
                       echo "Error al eliminar la pelicula.";
                     }else if(isset($_GET['errorModificar'])){
-                      echo "Rellene correctamente el formulario de modificar no puede ir vacío.";
+                      echo "Rellene correctamente el formulario de modificar, no puede estar vacío.";
                     }else{}
                   ?>
                 </span>
@@ -216,7 +216,7 @@
               <input type="text" class="form-control" id="peliculaName" name="peliculaName"/>
             </div>
             <div class="form-group col-md-4">
-              <label>Categoria/s</label>
+              <label>Categoría/s</label>
               <input type="text" class="form-control" id="peliculaCategoria" name="peliculaCategoria"/>
             </div>
             <div class="form-group col-md-2">
@@ -257,7 +257,7 @@
           <h4 class="mt-5">Archivos de video</h4>
           <div class="form-row">
             <div class="form-file col-md-6">
-              <label>Trailer</label>
+              <label>Tráiler</label>
               <input type="file" id="trailer" name="trailer"/>
             </div>
             <div class="form-file col-md-6">
