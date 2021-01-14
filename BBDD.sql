@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2020 a las 02:02:58
+-- Tiempo de generación: 14-01-2021 a las 01:26:43
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -42,14 +42,7 @@ CREATE TABLE `facturacion` (
 --
 
 INSERT INTO `facturacion` (`idFacturacion`, `fechaFacturacion`, `fechaExpiracion`, `idUsuario`, `idPrecios`, `nombreFacturacion`, `tipo`) VALUES
-(16, '2020-12-01', '2021-01-31', 29, 2, 'BORJA MARTIN CORCOBADO', 'Visa'),
-(17, '2020-10-01', '2020-12-01', 29, 1, 'Borja_spharta@hotmail.com', 'Paypal'),
-(18, '2020-08-02', '2020-09-16', 30, 1, 'Davidrojascaballero94@gmail.com', 'Paypal'),
-(19, '2020-12-13', '2020-12-31', 30, 2, 'Davidrojascaballero94@gmail.com', 'Paypal'),
-(29, '2020-12-17', '2021-01-16', 35, 1, 'Paco@gmail.com', 'Paypal'),
-(30, '2020-12-17', '2021-03-17', 36, 2, 'Maria@gmail.com', 'Paypal'),
-(31, '2020-12-17', '2021-03-17', 37, 2, 'MariaM@gmail.com', 'Paypal'),
-(34, '2020-12-18', '2021-03-18', 37, 2, 'borja_spharta@hotmail.com', 'ADMIN');
+(35, '2021-01-14', '2022-01-09', 39, 3, 'Admin@admin.com', 'Paypal');
 
 -- --------------------------------------------------------
 
@@ -61,14 +54,6 @@ CREATE TABLE `milista` (
   `idUsuario` int(11) NOT NULL,
   `idPeliculasSerie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
---
--- Volcado de datos para la tabla `milista`
---
-
-INSERT INTO `milista` (`idUsuario`, `idPeliculasSerie`) VALUES
-(29, 5),
-(29, 14);
 
 -- --------------------------------------------------------
 
@@ -239,11 +224,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nombreUsuario`, `apellidoUsuario`, `email`, `hashpass`, `direccion`, `telefono`, `nivel`) VALUES
-(29, 'Borja', 'Martin Corcobado', 'borja_spharta@hotmail.com', '$2y$10$lrKAqpOsDkuk3z2NABgW0OWyVfvnlJu4XIA.wDsWeBdUSu4OD2LMW', NULL, NULL, 0),
-(30, 'David ', 'Rojas', 'davidrojascaballero94@gmail.com', '$2y$10$ZfJZTgwV3se59s39ByQg6uexLF.agrJaYcNwltX5A2OYPW5XvD9JG', '', 0, 1),
-(35, 'Paco', 'Fernandez', 'Paco@gmail.com', '$2y$10$D780mvaLzZw0QNtRKzMh5ujSX7iRH53g1nkb0Rvxtk0MT85pYu.D.', 'Null', NULL, 0),
-(36, 'Maria', 'Mendez', 'Maria@gmail.com', '$2y$10$FUQ1orQpFybjkbPZl6FWoe0Z38Rl/LGy1B2f/t2GXReMPIprY9VBC', 'Null', NULL, 1),
-(37, 'Maria', 'Mendez', 'MariaM@gmail.com', '$2y$10$IWjS03/.B8A6S2ZVS3Exru2OLna5bTdIMY6/zPLk4p4tCiQbPotAK', 'Null', NULL, 1);
+(39, 'Admin', ' Admin', 'admin@admin.com', '$2y$10$DOlTdbAhoof5MrZBqOQ9m.YCkf7fYNCgv5x8rRwYImYmSoX0UOIge', 'Null', NULL, 0);
 
 --
 -- Índices para tablas volcadas
@@ -298,7 +279,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `facturacion`
 --
 ALTER TABLE `facturacion`
-  MODIFY `idFacturacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idFacturacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `peliculasseries`
@@ -316,7 +297,7 @@ ALTER TABLE `temporadas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Restricciones para tablas volcadas
